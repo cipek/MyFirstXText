@@ -1,0 +1,91 @@
+grammar org.xtext.example.mydsl.HelloWeb with org.eclipse.xtext.common.Terminals
+
+generate helloWeb "http://www.xtext.org/example/mydsl/HelloWeb"
+
+Program :
+  main = Main
+;
+  
+Main :
+	
+  (commands+=Snapshot';'?)?
+  ((takeoff+=Takeoff';'?)
+ 		 ((commands+=SuperCommand) ';'?)*
+  (land+=Land';'?))?
+ 
+  
+;
+
+RecordedFlight:
+	'RECORDFLIGHT' '('video_name = ID')';
+
+UserFunction:
+	(name = ID) '()'
+	'{'
+	(func+=Command';'?)*
+	'}'
+;
+
+DownwardCamera: 'USEDOWNWARDCAMERA';
+
+FaceDetect: 'FACEDETECT';
+
+FeatureMatch:
+	'FEATUREMATCH' '('image_name = ID')'
+;
+
+Takeoff: 'TAKEOFF';
+Land : 'LAND';
+
+SuperCommand:
+	Command
+	| FunctionName
+;
+
+Command:
+	Up 
+	| Down 
+	| Left 
+	| Right 
+	| Forward 
+	| Backward
+	| RotateL
+	| RotateR
+	| Wait
+	| Snapshot
+;
+
+Snapshot:
+	'SNAPSHOT' '('image_name = ID')'
+;
+Up: 
+	'UP' '('milliseconds = INT')'
+;
+Down: 
+	'DOWN' '('milliseconds = INT')'
+;
+Left: 
+	'LEFT' '('milliseconds = INT')'
+;
+Right: 
+	'RIGHT' '('milliseconds = INT')'
+;
+Forward: 
+	'FORWARD' '('milliseconds = INT')'
+;
+Backward: 
+	'BACKWARD' '('milliseconds = INT')'
+;
+RotateL: 
+	'ROTATELEFT' '('milliseconds = INT')'
+;
+RotateR: 
+	'ROTATERIGHT' '('milliseconds = INT')'
+;
+Wait:
+	'WAIT' '(' milliseconds = INT ')'
+;
+
+FunctionName:
+	func_name = ID '()'
+;
