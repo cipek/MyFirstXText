@@ -73,7 +73,6 @@ public class BackwardImpl extends CommandImpl implements Backward
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public int getMilliseconds()
   {
     return milliseconds;
@@ -84,7 +83,6 @@ public class BackwardImpl extends CommandImpl implements Backward
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setMilliseconds(int newMilliseconds)
   {
     int oldMilliseconds = milliseconds;
@@ -169,7 +167,7 @@ public class BackwardImpl extends CommandImpl implements Backward
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (milliseconds: ");
     result.append(milliseconds);
     result.append(')');

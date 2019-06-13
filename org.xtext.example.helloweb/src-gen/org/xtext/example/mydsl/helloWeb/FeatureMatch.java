@@ -26,6 +26,10 @@ public interface FeatureMatch extends EObject
   /**
    * Returns the value of the '<em><b>Image name</b></em>' attribute.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Image name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Image name</em>' attribute.
    * @see #setImage_name(String)

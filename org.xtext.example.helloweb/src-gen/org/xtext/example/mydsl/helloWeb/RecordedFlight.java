@@ -26,6 +26,10 @@ public interface RecordedFlight extends EObject
   /**
    * Returns the value of the '<em><b>Video name</b></em>' attribute.
    * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Video name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Video name</em>' attribute.
    * @see #setVideo_name(String)

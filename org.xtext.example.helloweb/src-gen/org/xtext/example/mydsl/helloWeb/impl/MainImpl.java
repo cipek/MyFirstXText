@@ -95,7 +95,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EList<SuperCommand> getCommands()
   {
     if (commands == null)
@@ -110,7 +109,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EList<String> getTakeoff()
   {
     if (takeoff == null)
@@ -125,7 +123,6 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EList<String> getLand()
   {
     if (land == null)
@@ -251,7 +248,7 @@ public class MainImpl extends MinimalEObjectImpl.Container implements Main
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (takeoff: ");
     result.append(takeoff);
     result.append(", land: ");

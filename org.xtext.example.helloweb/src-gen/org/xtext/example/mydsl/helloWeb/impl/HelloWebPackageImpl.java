@@ -194,7 +194,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
 
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-   *
+   * 
    * <p>This method is used to initialize {@link HelloWebPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
@@ -209,8 +209,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
     if (isInited) return (HelloWebPackage)EPackage.Registry.INSTANCE.getEPackage(HelloWebPackage.eNS_URI);
 
     // Obtain or create and register package
-    Object registeredHelloWebPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-    HelloWebPackageImpl theHelloWebPackage = registeredHelloWebPackage instanceof HelloWebPackageImpl ? (HelloWebPackageImpl)registeredHelloWebPackage : new HelloWebPackageImpl();
+    HelloWebPackageImpl theHelloWebPackage = (HelloWebPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof HelloWebPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new HelloWebPackageImpl());
 
     isInited = true;
 
@@ -223,6 +222,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
     // Mark meta-data to indicate it can't be changed
     theHelloWebPackage.freeze();
 
+  
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(HelloWebPackage.eNS_URI, theHelloWebPackage);
     return theHelloWebPackage;
@@ -233,7 +233,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getProgram()
   {
     return programEClass;
@@ -244,7 +243,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getProgram_Main()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(0);
@@ -255,7 +253,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getMain()
   {
     return mainEClass;
@@ -266,7 +263,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getMain_Commands()
   {
     return (EReference)mainEClass.getEStructuralFeatures().get(0);
@@ -277,7 +273,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getMain_Takeoff()
   {
     return (EAttribute)mainEClass.getEStructuralFeatures().get(1);
@@ -288,7 +283,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getMain_Land()
   {
     return (EAttribute)mainEClass.getEStructuralFeatures().get(2);
@@ -299,7 +293,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getRecordedFlight()
   {
     return recordedFlightEClass;
@@ -310,7 +303,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getRecordedFlight_Video_name()
   {
     return (EAttribute)recordedFlightEClass.getEStructuralFeatures().get(0);
@@ -321,7 +313,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getUserFunction()
   {
     return userFunctionEClass;
@@ -332,7 +323,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getUserFunction_Name()
   {
     return (EAttribute)userFunctionEClass.getEStructuralFeatures().get(0);
@@ -343,7 +333,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EReference getUserFunction_Func()
   {
     return (EReference)userFunctionEClass.getEStructuralFeatures().get(1);
@@ -354,7 +343,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getFeatureMatch()
   {
     return featureMatchEClass;
@@ -365,7 +353,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getFeatureMatch_Image_name()
   {
     return (EAttribute)featureMatchEClass.getEStructuralFeatures().get(0);
@@ -376,7 +363,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getSuperCommand()
   {
     return superCommandEClass;
@@ -387,7 +373,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getCommand()
   {
     return commandEClass;
@@ -398,7 +383,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getSnapshot()
   {
     return snapshotEClass;
@@ -409,7 +393,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getSnapshot_Image_name()
   {
     return (EAttribute)snapshotEClass.getEStructuralFeatures().get(0);
@@ -420,7 +403,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getUp()
   {
     return upEClass;
@@ -431,7 +413,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getUp_Milliseconds()
   {
     return (EAttribute)upEClass.getEStructuralFeatures().get(0);
@@ -442,7 +423,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getDown()
   {
     return downEClass;
@@ -453,7 +433,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getDown_Milliseconds()
   {
     return (EAttribute)downEClass.getEStructuralFeatures().get(0);
@@ -464,7 +443,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getLeft()
   {
     return leftEClass;
@@ -475,7 +453,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getLeft_Milliseconds()
   {
     return (EAttribute)leftEClass.getEStructuralFeatures().get(0);
@@ -486,7 +463,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getRight()
   {
     return rightEClass;
@@ -497,7 +473,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getRight_Milliseconds()
   {
     return (EAttribute)rightEClass.getEStructuralFeatures().get(0);
@@ -508,7 +483,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getForward()
   {
     return forwardEClass;
@@ -519,7 +493,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getForward_Milliseconds()
   {
     return (EAttribute)forwardEClass.getEStructuralFeatures().get(0);
@@ -530,7 +503,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getBackward()
   {
     return backwardEClass;
@@ -541,7 +513,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getBackward_Milliseconds()
   {
     return (EAttribute)backwardEClass.getEStructuralFeatures().get(0);
@@ -552,7 +523,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getRotateL()
   {
     return rotateLEClass;
@@ -563,7 +533,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getRotateL_Milliseconds()
   {
     return (EAttribute)rotateLEClass.getEStructuralFeatures().get(0);
@@ -574,7 +543,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getRotateR()
   {
     return rotateREClass;
@@ -585,7 +553,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getRotateR_Milliseconds()
   {
     return (EAttribute)rotateREClass.getEStructuralFeatures().get(0);
@@ -596,7 +563,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getWait()
   {
     return waitEClass;
@@ -607,7 +573,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getWait_Milliseconds()
   {
     return (EAttribute)waitEClass.getEStructuralFeatures().get(0);
@@ -618,7 +583,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EClass getFunctionName()
   {
     return functionNameEClass;
@@ -629,7 +593,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public EAttribute getFunctionName_Func_name()
   {
     return (EAttribute)functionNameEClass.getEStructuralFeatures().get(0);
@@ -640,7 +603,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public HelloWebFactory getHelloWebFactory()
   {
     return (HelloWebFactory)getEFactoryInstance();

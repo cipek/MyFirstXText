@@ -73,7 +73,6 @@ public class SnapshotImpl extends CommandImpl implements Snapshot
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getImage_name()
   {
     return image_name;
@@ -84,7 +83,6 @@ public class SnapshotImpl extends CommandImpl implements Snapshot
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setImage_name(String newImage_name)
   {
     String oldImage_name = image_name;
@@ -169,7 +167,7 @@ public class SnapshotImpl extends CommandImpl implements Snapshot
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (image_name: ");
     result.append(image_name);
     result.append(')');

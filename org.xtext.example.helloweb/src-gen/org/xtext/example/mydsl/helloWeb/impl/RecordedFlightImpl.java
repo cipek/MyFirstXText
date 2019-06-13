@@ -74,7 +74,6 @@ public class RecordedFlightImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public String getVideo_name()
   {
     return video_name;
@@ -85,7 +84,6 @@ public class RecordedFlightImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setVideo_name(String newVideo_name)
   {
     String oldVideo_name = video_name;
@@ -170,7 +168,7 @@ public class RecordedFlightImpl extends MinimalEObjectImpl.Container implements 
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (video_name: ");
     result.append(video_name);
     result.append(')');

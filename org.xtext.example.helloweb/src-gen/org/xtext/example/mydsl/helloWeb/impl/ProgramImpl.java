@@ -67,7 +67,6 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public Main getMain()
   {
     return main;
@@ -95,7 +94,6 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
   public void setMain(Main newMain)
   {
     if (newMain != main)
