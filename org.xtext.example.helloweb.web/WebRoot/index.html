@@ -41,6 +41,25 @@
 						e.preventDefault();
 					});
 
+ 					$('#deploy-button').bind("click", function(e){
+ 						var data = {
+ 							resource : editor.xtextServices.options.resourceId,
+ 							fullText : editor.getValue()
+ 						};
+
+ 	 						$.post(baseUrl+'xtext-service/compile?resource='+editor.xtextServices.options.resourceId, data, function(result){
+ 								console.log("resource generated");
+
+ 								console.log("deploying resource");
+
+ 		 						$.post(baseUrl+'xtext-service/deploy?resource='+editor.xtextServices.options.resourceId, data, function(result){
+ 		 							console.log("deployment finished");
+
+ 								});
+ 							});
+ 							e.preventDefault();
+ 					});
+
 			});
 		});
 	</script>
@@ -52,6 +71,7 @@
 			<h1>Web Editor</h1>
 		</div> -->
 		<button id="generate-button" value="Generate" title="Generate">Generate</button>
+		<button id="deploy-button" value="Deploy" title="Deploy">Deploy</button>
 		<div class="content">
 			<div id="xtext-editor" data-editor-xtext-lang="helloweb"></div>
 		</div>
