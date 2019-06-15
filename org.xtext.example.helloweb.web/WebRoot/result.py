@@ -14,83 +14,83 @@ def ReceiveNavdata(data):
 	global state
 	state = data.state
 	
-	def rotate(speed, angle, clockwise):
-		vel_msg = Twist()
-		velocity_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
-	
-		angular_speed = speed*PI/360
-		relative_angle = angle*PI/360
-	
-		vel_msg.linear.x=0
-		vel_msg.linear.y=0
-		vel_msg.linear.z=0
-		vel_msg.angular.x = 0
-		vel_msg.angular.y = 0
-	
-		if clockwise:
-			vel_msg.angular.z = -abs(angular_speed)
+def rotate(speed, angle, clockwise):
+	vel_msg = Twist()
+	velocity_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+
+	angular_speed = speed*2*PI/360
+	relative_angle = angle*2*PI/360
+
+	vel_msg.linear.x=0
+	vel_msg.linear.y=0
+	vel_msg.linear.z=0
+	vel_msg.angular.x = 0
+	vel_msg.angular.y = 0
+
+	if clockwise:
+		vel_msg.angular.z = -abs(angular_speed)
+	else:
+		vel_msg.angular.z = abs(angular_speed)
+
+	t0 = rospy.Time.now().to_sec()
+	current_angle = 0
+
+	while velocity_publisher.get_num_connections() < 1:
+		rospy.sleep(0.1)
+
+	while(current_angle < relative_angle):
+		velocity_publisher.publish(vel_msg)
+		t1 = rospy.Time.now().to_sec()
+		current_angle = angular_speed*(t1-t0)
+
+	vel_msg.angular.z = 0
+	velocity_publisher.publish(vel_msg)
+
+
+#direction (true)- forward, left, up
+def move(speed, distance, direction, axis): 
+	vel_msg = Twist()
+	velocity_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+
+	vel_msg.linear.x=0
+	vel_msg.linear.y=0
+	vel_msg.linear.z=0
+	vel_msg.angular.x = 0
+	vel_msg.angular.y = 0
+	vel_msg.angular.z = 0
+
+	if axis == "x":
+		if direction:
+			vel_msg.linear.x = abs(speed)
 		else:
-			vel_msg.angular.z = abs(angular_speed)
-	
-		t0 = rospy.Time.now().to_sec()
-		current_angle = 0
-	
-		while velocity_publisher.get_num_connections() < 1:
-			rospy.sleep(0.1)
-	
-		while(current_angle < relative_angle):
-			velocity_publisher.publish(vel_msg)
-			t1 = rospy.Time.now().to_sec()
-			current_angle = angular_speed*(t1-t0)
-	
-		vel_msg.angular.z = 0
+			vel_msg.linear.x = -abs(speed)
+	elif axis == "y":
+		if direction:
+			vel_msg.linear.y = abs(speed)
+		else:
+			vel_msg.linear.y = -abs(speed)
+	elif axis == "z":
+		if direction:
+			vel_msg.linear.z = abs(speed)
+		else:
+			vel_msg.linear.z = -abs(speed)
+
+
+	while velocity_publisher.get_num_connections() < 1:
+		rospy.sleep(0.1)
+
+	t0 = rospy.Time.now().to_sec()
+	current_distance = 0
+
+	while(current_distance < distance):
 		velocity_publisher.publish(vel_msg)
-	
-	
-	#direction (true)- forward, left, up
-	def move(speed, distance, direction, axis): 
-		vel_msg = Twist()
-		velocity_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
-	
-		vel_msg.linear.x=0
-		vel_msg.linear.y=0
-		vel_msg.linear.z=0
-		vel_msg.angular.x = 0
-		vel_msg.angular.y = 0
-		vel_msg.angular.z = 0
-	
-		if axis == "x":
-			if direction:
-				vel_msg.linear.x = abs(speed)
-			else:
-				vel_msg.linear.x = -abs(speed)
-		elif axis == "y":
-			if direction:
-				vel_msg.linear.y = abs(speed)
-			else:
-				vel_msg.linear.y = -abs(speed)
-		elif axis == "z":
-			if direction:
-				vel_msg.linear.z = abs(speed)
-			else:
-				vel_msg.linear.z = -abs(speed)
-	
-	
-		while velocity_publisher.get_num_connections() < 1:
-			rospy.sleep(0.1)
-	
-		t0 = rospy.Time.now().to_sec()
-		current_distance = 0
-	
-		while(current_distance < distance):
-			velocity_publisher.publish(vel_msg)
-			t1 = rospy.Time.now().to_sec()
-			current_distance = speed*(t1-t0)
-	
-		vel_msg.linear.x=0
-		vel_msg.linear.y=0
-		vel_msg.linear.z=0
-		velocity_publisher.publish(vel_msg)
+		t1 = rospy.Time.now().to_sec()
+		current_distance = speed*(t1-t0)
+
+	vel_msg.linear.x=0
+	vel_msg.linear.y=0
+	vel_msg.linear.z=0
+	velocity_publisher.publish(vel_msg)
 		
 
 rospy.init_node('test_node')
@@ -117,9 +117,15 @@ while takeoff.get_num_connections() < 1:
 takeoff.publish(empty)
 rospy.sleep(5)
 
+	  	
+rotate(30, 90, True)
+	  	
+rospy.sleep(1.0)
+move(0.1, 0.2, True, "x")
+	  	
 rotate(30, 90, False)
-	  	move(0.1, 0.2, True, "y")
-	  	move(0.1, 0.2, True, "y")
+	  	
+rotate(30, 90, False)
 
 land = rospy.Publisher('/ardrone/land', Empty, queue_size=1)
 			
