@@ -301,13 +301,13 @@ public interface HelloWebPackage extends EPackage
   int UP = 8;
 
   /**
-   * The feature id for the '<em><b>Milliseconds</b></em>' attribute.
+   * The feature id for the '<em><b>Distance</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UP__MILLISECONDS = COMMAND_FEATURE_COUNT + 0;
+  int UP__DISTANCE = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Up</em>' class.
@@ -329,13 +329,13 @@ public interface HelloWebPackage extends EPackage
   int DOWN = 9;
 
   /**
-   * The feature id for the '<em><b>Milliseconds</b></em>' attribute.
+   * The feature id for the '<em><b>Distance</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOWN__MILLISECONDS = COMMAND_FEATURE_COUNT + 0;
+  int DOWN__DISTANCE = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Down</em>' class.
@@ -357,13 +357,13 @@ public interface HelloWebPackage extends EPackage
   int LEFT = 10;
 
   /**
-   * The feature id for the '<em><b>Milliseconds</b></em>' attribute.
+   * The feature id for the '<em><b>Distance</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LEFT__MILLISECONDS = COMMAND_FEATURE_COUNT + 0;
+  int LEFT__DISTANCE = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Left</em>' class.
@@ -385,13 +385,13 @@ public interface HelloWebPackage extends EPackage
   int RIGHT = 11;
 
   /**
-   * The feature id for the '<em><b>Milliseconds</b></em>' attribute.
+   * The feature id for the '<em><b>Distance</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RIGHT__MILLISECONDS = COMMAND_FEATURE_COUNT + 0;
+  int RIGHT__DISTANCE = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Right</em>' class.
@@ -413,13 +413,13 @@ public interface HelloWebPackage extends EPackage
   int FORWARD = 12;
 
   /**
-   * The feature id for the '<em><b>Milliseconds</b></em>' attribute.
+   * The feature id for the '<em><b>Distance</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FORWARD__MILLISECONDS = COMMAND_FEATURE_COUNT + 0;
+  int FORWARD__DISTANCE = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Forward</em>' class.
@@ -441,13 +441,13 @@ public interface HelloWebPackage extends EPackage
   int BACKWARD = 13;
 
   /**
-   * The feature id for the '<em><b>Milliseconds</b></em>' attribute.
+   * The feature id for the '<em><b>Distance</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BACKWARD__MILLISECONDS = COMMAND_FEATURE_COUNT + 0;
+  int BACKWARD__DISTANCE = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Backward</em>' class.
@@ -469,13 +469,13 @@ public interface HelloWebPackage extends EPackage
   int ROTATE_L = 14;
 
   /**
-   * The feature id for the '<em><b>Milliseconds</b></em>' attribute.
+   * The feature id for the '<em><b>Angle</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROTATE_L__MILLISECONDS = COMMAND_FEATURE_COUNT + 0;
+  int ROTATE_L__ANGLE = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Rotate L</em>' class.
@@ -497,13 +497,13 @@ public interface HelloWebPackage extends EPackage
   int ROTATE_R = 15;
 
   /**
-   * The feature id for the '<em><b>Milliseconds</b></em>' attribute.
+   * The feature id for the '<em><b>Angle</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROTATE_R__MILLISECONDS = COMMAND_FEATURE_COUNT + 0;
+  int ROTATE_R__ANGLE = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Rotate R</em>' class.
@@ -525,13 +525,13 @@ public interface HelloWebPackage extends EPackage
   int WAIT = 16;
 
   /**
-   * The feature id for the '<em><b>Milliseconds</b></em>' attribute.
+   * The feature id for the '<em><b>Seconds</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WAIT__MILLISECONDS = COMMAND_FEATURE_COUNT + 0;
+  int WAIT__SECONDS = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Wait</em>' class.
@@ -761,15 +761,15 @@ public interface HelloWebPackage extends EPackage
   EClass getUp();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Up#getMilliseconds <em>Milliseconds</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Up#getDistance <em>Distance</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Milliseconds</em>'.
-   * @see org.xtext.example.mydsl.helloWeb.Up#getMilliseconds()
+   * @return the meta object for the attribute '<em>Distance</em>'.
+   * @see org.xtext.example.mydsl.helloWeb.Up#getDistance()
    * @see #getUp()
    * @generated
    */
-  EAttribute getUp_Milliseconds();
+  EAttribute getUp_Distance();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.helloWeb.Down <em>Down</em>}'.
@@ -782,15 +782,15 @@ public interface HelloWebPackage extends EPackage
   EClass getDown();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Down#getMilliseconds <em>Milliseconds</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Down#getDistance <em>Distance</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Milliseconds</em>'.
-   * @see org.xtext.example.mydsl.helloWeb.Down#getMilliseconds()
+   * @return the meta object for the attribute '<em>Distance</em>'.
+   * @see org.xtext.example.mydsl.helloWeb.Down#getDistance()
    * @see #getDown()
    * @generated
    */
-  EAttribute getDown_Milliseconds();
+  EAttribute getDown_Distance();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.helloWeb.Left <em>Left</em>}'.
@@ -803,15 +803,15 @@ public interface HelloWebPackage extends EPackage
   EClass getLeft();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Left#getMilliseconds <em>Milliseconds</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Left#getDistance <em>Distance</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Milliseconds</em>'.
-   * @see org.xtext.example.mydsl.helloWeb.Left#getMilliseconds()
+   * @return the meta object for the attribute '<em>Distance</em>'.
+   * @see org.xtext.example.mydsl.helloWeb.Left#getDistance()
    * @see #getLeft()
    * @generated
    */
-  EAttribute getLeft_Milliseconds();
+  EAttribute getLeft_Distance();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.helloWeb.Right <em>Right</em>}'.
@@ -824,15 +824,15 @@ public interface HelloWebPackage extends EPackage
   EClass getRight();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Right#getMilliseconds <em>Milliseconds</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Right#getDistance <em>Distance</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Milliseconds</em>'.
-   * @see org.xtext.example.mydsl.helloWeb.Right#getMilliseconds()
+   * @return the meta object for the attribute '<em>Distance</em>'.
+   * @see org.xtext.example.mydsl.helloWeb.Right#getDistance()
    * @see #getRight()
    * @generated
    */
-  EAttribute getRight_Milliseconds();
+  EAttribute getRight_Distance();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.helloWeb.Forward <em>Forward</em>}'.
@@ -845,15 +845,15 @@ public interface HelloWebPackage extends EPackage
   EClass getForward();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Forward#getMilliseconds <em>Milliseconds</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Forward#getDistance <em>Distance</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Milliseconds</em>'.
-   * @see org.xtext.example.mydsl.helloWeb.Forward#getMilliseconds()
+   * @return the meta object for the attribute '<em>Distance</em>'.
+   * @see org.xtext.example.mydsl.helloWeb.Forward#getDistance()
    * @see #getForward()
    * @generated
    */
-  EAttribute getForward_Milliseconds();
+  EAttribute getForward_Distance();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.helloWeb.Backward <em>Backward</em>}'.
@@ -866,15 +866,15 @@ public interface HelloWebPackage extends EPackage
   EClass getBackward();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Backward#getMilliseconds <em>Milliseconds</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Backward#getDistance <em>Distance</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Milliseconds</em>'.
-   * @see org.xtext.example.mydsl.helloWeb.Backward#getMilliseconds()
+   * @return the meta object for the attribute '<em>Distance</em>'.
+   * @see org.xtext.example.mydsl.helloWeb.Backward#getDistance()
    * @see #getBackward()
    * @generated
    */
-  EAttribute getBackward_Milliseconds();
+  EAttribute getBackward_Distance();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.helloWeb.RotateL <em>Rotate L</em>}'.
@@ -887,15 +887,15 @@ public interface HelloWebPackage extends EPackage
   EClass getRotateL();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.RotateL#getMilliseconds <em>Milliseconds</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.RotateL#getAngle <em>Angle</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Milliseconds</em>'.
-   * @see org.xtext.example.mydsl.helloWeb.RotateL#getMilliseconds()
+   * @return the meta object for the attribute '<em>Angle</em>'.
+   * @see org.xtext.example.mydsl.helloWeb.RotateL#getAngle()
    * @see #getRotateL()
    * @generated
    */
-  EAttribute getRotateL_Milliseconds();
+  EAttribute getRotateL_Angle();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.helloWeb.RotateR <em>Rotate R</em>}'.
@@ -908,15 +908,15 @@ public interface HelloWebPackage extends EPackage
   EClass getRotateR();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.RotateR#getMilliseconds <em>Milliseconds</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.RotateR#getAngle <em>Angle</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Milliseconds</em>'.
-   * @see org.xtext.example.mydsl.helloWeb.RotateR#getMilliseconds()
+   * @return the meta object for the attribute '<em>Angle</em>'.
+   * @see org.xtext.example.mydsl.helloWeb.RotateR#getAngle()
    * @see #getRotateR()
    * @generated
    */
-  EAttribute getRotateR_Milliseconds();
+  EAttribute getRotateR_Angle();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.helloWeb.Wait <em>Wait</em>}'.
@@ -929,15 +929,15 @@ public interface HelloWebPackage extends EPackage
   EClass getWait();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Wait#getMilliseconds <em>Milliseconds</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.helloWeb.Wait#getSeconds <em>Seconds</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Milliseconds</em>'.
-   * @see org.xtext.example.mydsl.helloWeb.Wait#getMilliseconds()
+   * @return the meta object for the attribute '<em>Seconds</em>'.
+   * @see org.xtext.example.mydsl.helloWeb.Wait#getSeconds()
    * @see #getWait()
    * @generated
    */
-  EAttribute getWait_Milliseconds();
+  EAttribute getWait_Seconds();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.helloWeb.FunctionName <em>Function Name</em>}'.
@@ -1146,12 +1146,12 @@ public interface HelloWebPackage extends EPackage
     EClass UP = eINSTANCE.getUp();
 
     /**
-     * The meta object literal for the '<em><b>Milliseconds</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute UP__MILLISECONDS = eINSTANCE.getUp_Milliseconds();
+    EAttribute UP__DISTANCE = eINSTANCE.getUp_Distance();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.helloWeb.impl.DownImpl <em>Down</em>}' class.
@@ -1164,12 +1164,12 @@ public interface HelloWebPackage extends EPackage
     EClass DOWN = eINSTANCE.getDown();
 
     /**
-     * The meta object literal for the '<em><b>Milliseconds</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DOWN__MILLISECONDS = eINSTANCE.getDown_Milliseconds();
+    EAttribute DOWN__DISTANCE = eINSTANCE.getDown_Distance();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.helloWeb.impl.LeftImpl <em>Left</em>}' class.
@@ -1182,12 +1182,12 @@ public interface HelloWebPackage extends EPackage
     EClass LEFT = eINSTANCE.getLeft();
 
     /**
-     * The meta object literal for the '<em><b>Milliseconds</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LEFT__MILLISECONDS = eINSTANCE.getLeft_Milliseconds();
+    EAttribute LEFT__DISTANCE = eINSTANCE.getLeft_Distance();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.helloWeb.impl.RightImpl <em>Right</em>}' class.
@@ -1200,12 +1200,12 @@ public interface HelloWebPackage extends EPackage
     EClass RIGHT = eINSTANCE.getRight();
 
     /**
-     * The meta object literal for the '<em><b>Milliseconds</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RIGHT__MILLISECONDS = eINSTANCE.getRight_Milliseconds();
+    EAttribute RIGHT__DISTANCE = eINSTANCE.getRight_Distance();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.helloWeb.impl.ForwardImpl <em>Forward</em>}' class.
@@ -1218,12 +1218,12 @@ public interface HelloWebPackage extends EPackage
     EClass FORWARD = eINSTANCE.getForward();
 
     /**
-     * The meta object literal for the '<em><b>Milliseconds</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FORWARD__MILLISECONDS = eINSTANCE.getForward_Milliseconds();
+    EAttribute FORWARD__DISTANCE = eINSTANCE.getForward_Distance();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.helloWeb.impl.BackwardImpl <em>Backward</em>}' class.
@@ -1236,12 +1236,12 @@ public interface HelloWebPackage extends EPackage
     EClass BACKWARD = eINSTANCE.getBackward();
 
     /**
-     * The meta object literal for the '<em><b>Milliseconds</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BACKWARD__MILLISECONDS = eINSTANCE.getBackward_Milliseconds();
+    EAttribute BACKWARD__DISTANCE = eINSTANCE.getBackward_Distance();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.helloWeb.impl.RotateLImpl <em>Rotate L</em>}' class.
@@ -1254,12 +1254,12 @@ public interface HelloWebPackage extends EPackage
     EClass ROTATE_L = eINSTANCE.getRotateL();
 
     /**
-     * The meta object literal for the '<em><b>Milliseconds</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Angle</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ROTATE_L__MILLISECONDS = eINSTANCE.getRotateL_Milliseconds();
+    EAttribute ROTATE_L__ANGLE = eINSTANCE.getRotateL_Angle();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.helloWeb.impl.RotateRImpl <em>Rotate R</em>}' class.
@@ -1272,12 +1272,12 @@ public interface HelloWebPackage extends EPackage
     EClass ROTATE_R = eINSTANCE.getRotateR();
 
     /**
-     * The meta object literal for the '<em><b>Milliseconds</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Angle</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ROTATE_R__MILLISECONDS = eINSTANCE.getRotateR_Milliseconds();
+    EAttribute ROTATE_R__ANGLE = eINSTANCE.getRotateR_Angle();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.helloWeb.impl.WaitImpl <em>Wait</em>}' class.
@@ -1290,12 +1290,12 @@ public interface HelloWebPackage extends EPackage
     EClass WAIT = eINSTANCE.getWait();
 
     /**
-     * The meta object literal for the '<em><b>Milliseconds</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Seconds</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute WAIT__MILLISECONDS = eINSTANCE.getWait_Milliseconds();
+    EAttribute WAIT__SECONDS = eINSTANCE.getWait_Seconds();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.helloWeb.impl.FunctionNameImpl <em>Function Name</em>}' class.

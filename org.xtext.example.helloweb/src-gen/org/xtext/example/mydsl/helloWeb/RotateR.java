@@ -13,7 +13,7 @@ package org.xtext.example.mydsl.helloWeb;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.helloWeb.RotateR#getMilliseconds <em>Milliseconds</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.helloWeb.RotateR#getAngle <em>Angle</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.helloWeb.HelloWebPackage#getRotateR()
@@ -23,29 +23,25 @@ package org.xtext.example.mydsl.helloWeb;
 public interface RotateR extends Command
 {
   /**
-   * Returns the value of the '<em><b>Milliseconds</b></em>' attribute.
+   * Returns the value of the '<em><b>Angle</b></em>' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Milliseconds</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Milliseconds</em>' attribute.
-   * @see #setMilliseconds(int)
-   * @see org.xtext.example.mydsl.helloWeb.HelloWebPackage#getRotateR_Milliseconds()
+   * @return the value of the '<em>Angle</em>' attribute.
+   * @see #setAngle(int)
+   * @see org.xtext.example.mydsl.helloWeb.HelloWebPackage#getRotateR_Angle()
    * @model
    * @generated
    */
-  int getMilliseconds();
+  int getAngle();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.helloWeb.RotateR#getMilliseconds <em>Milliseconds</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.helloWeb.RotateR#getAngle <em>Angle</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Milliseconds</em>' attribute.
-   * @see #getMilliseconds()
+   * @param value the new value of the '<em>Angle</em>' attribute.
+   * @see #getAngle()
    * @generated
    */
-  void setMilliseconds(int value);
+  void setAngle(int value);
 
 } // RotateR

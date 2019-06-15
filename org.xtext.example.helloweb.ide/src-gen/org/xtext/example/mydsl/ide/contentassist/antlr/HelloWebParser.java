@@ -43,6 +43,7 @@ public class HelloWebParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUserFunctionAccess().getGroup(), "rule__UserFunction__Group__0");
 			builder.put(grammarAccess.getUserFunctionAccess().getGroup_3(), "rule__UserFunction__Group_3__0");
 			builder.put(grammarAccess.getFeatureMatchAccess().getGroup(), "rule__FeatureMatch__Group__0");
+			builder.put(grammarAccess.getDOUBLEAccess().getGroup(), "rule__DOUBLE__Group__0");
 			builder.put(grammarAccess.getSnapshotAccess().getGroup(), "rule__Snapshot__Group__0");
 			builder.put(grammarAccess.getUpAccess().getGroup(), "rule__Up__Group__0");
 			builder.put(grammarAccess.getDownAccess().getGroup(), "rule__Down__Group__0");
@@ -64,15 +65,15 @@ public class HelloWebParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUserFunctionAccess().getFuncAssignment_3_0(), "rule__UserFunction__FuncAssignment_3_0");
 			builder.put(grammarAccess.getFeatureMatchAccess().getImage_nameAssignment_2(), "rule__FeatureMatch__Image_nameAssignment_2");
 			builder.put(grammarAccess.getSnapshotAccess().getImage_nameAssignment_2(), "rule__Snapshot__Image_nameAssignment_2");
-			builder.put(grammarAccess.getUpAccess().getMillisecondsAssignment_2(), "rule__Up__MillisecondsAssignment_2");
-			builder.put(grammarAccess.getDownAccess().getMillisecondsAssignment_2(), "rule__Down__MillisecondsAssignment_2");
-			builder.put(grammarAccess.getLeftAccess().getMillisecondsAssignment_2(), "rule__Left__MillisecondsAssignment_2");
-			builder.put(grammarAccess.getRightAccess().getMillisecondsAssignment_2(), "rule__Right__MillisecondsAssignment_2");
-			builder.put(grammarAccess.getForwardAccess().getMillisecondsAssignment_2(), "rule__Forward__MillisecondsAssignment_2");
-			builder.put(grammarAccess.getBackwardAccess().getMillisecondsAssignment_2(), "rule__Backward__MillisecondsAssignment_2");
-			builder.put(grammarAccess.getRotateLAccess().getMillisecondsAssignment_2(), "rule__RotateL__MillisecondsAssignment_2");
-			builder.put(grammarAccess.getRotateRAccess().getMillisecondsAssignment_2(), "rule__RotateR__MillisecondsAssignment_2");
-			builder.put(grammarAccess.getWaitAccess().getMillisecondsAssignment_2(), "rule__Wait__MillisecondsAssignment_2");
+			builder.put(grammarAccess.getUpAccess().getDistanceAssignment_2(), "rule__Up__DistanceAssignment_2");
+			builder.put(grammarAccess.getDownAccess().getDistanceAssignment_2(), "rule__Down__DistanceAssignment_2");
+			builder.put(grammarAccess.getLeftAccess().getDistanceAssignment_2(), "rule__Left__DistanceAssignment_2");
+			builder.put(grammarAccess.getRightAccess().getDistanceAssignment_2(), "rule__Right__DistanceAssignment_2");
+			builder.put(grammarAccess.getForwardAccess().getDistanceAssignment_2(), "rule__Forward__DistanceAssignment_2");
+			builder.put(grammarAccess.getBackwardAccess().getDistanceAssignment_2(), "rule__Backward__DistanceAssignment_2");
+			builder.put(grammarAccess.getRotateLAccess().getAngleAssignment_2(), "rule__RotateL__AngleAssignment_2");
+			builder.put(grammarAccess.getRotateRAccess().getAngleAssignment_2(), "rule__RotateR__AngleAssignment_2");
+			builder.put(grammarAccess.getWaitAccess().getSecondsAssignment_2(), "rule__Wait__SecondsAssignment_2");
 			builder.put(grammarAccess.getFunctionNameAccess().getFunc_nameAssignment_0(), "rule__FunctionName__Func_nameAssignment_0");
 		}
 	}

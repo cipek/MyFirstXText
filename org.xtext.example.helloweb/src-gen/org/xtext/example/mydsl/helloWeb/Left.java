@@ -13,7 +13,7 @@ package org.xtext.example.mydsl.helloWeb;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.helloWeb.Left#getMilliseconds <em>Milliseconds</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.helloWeb.Left#getDistance <em>Distance</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl.helloWeb.HelloWebPackage#getLeft()
@@ -23,29 +23,25 @@ package org.xtext.example.mydsl.helloWeb;
 public interface Left extends Command
 {
   /**
-   * Returns the value of the '<em><b>Milliseconds</b></em>' attribute.
+   * Returns the value of the '<em><b>Distance</b></em>' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Milliseconds</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Milliseconds</em>' attribute.
-   * @see #setMilliseconds(int)
-   * @see org.xtext.example.mydsl.helloWeb.HelloWebPackage#getLeft_Milliseconds()
+   * @return the value of the '<em>Distance</em>' attribute.
+   * @see #setDistance(String)
+   * @see org.xtext.example.mydsl.helloWeb.HelloWebPackage#getLeft_Distance()
    * @model
    * @generated
    */
-  int getMilliseconds();
+  String getDistance();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl.helloWeb.Left#getMilliseconds <em>Milliseconds</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl.helloWeb.Left#getDistance <em>Distance</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Milliseconds</em>' attribute.
-   * @see #getMilliseconds()
+   * @param value the new value of the '<em>Distance</em>' attribute.
+   * @see #getDistance()
    * @generated
    */
-  void setMilliseconds(int value);
+  void setDistance(String value);
 
 } // Left

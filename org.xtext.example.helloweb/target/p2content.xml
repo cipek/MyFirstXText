@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='org.xtext.example.helloweb' version='1.0.0.201906131607' generation='2'>
-    <update id='org.xtext.example.helloweb' range='[0.0.0,1.0.0.201906131607)' severity='0'/>
+  <unit id='org.xtext.example.helloweb' version='1.0.0.201906141800' generation='2'>
+    <update id='org.xtext.example.helloweb' range='[0.0.0,1.0.0.201906141800)' severity='0'/>
     <properties size='5'>
       <property name='org.eclipse.equinox.p2.name' value='org.xtext.example.helloweb'/>
       <property name='org.eclipse.equinox.p2.provider' value='My Company'/>
@@ -10,8 +10,8 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='15'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='org.xtext.example.helloweb' version='1.0.0.201906131607'/>
-      <provided namespace='osgi.bundle' name='org.xtext.example.helloweb' version='1.0.0.201906131607'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.xtext.example.helloweb' version='1.0.0.201906141800'/>
+      <provided namespace='osgi.bundle' name='org.xtext.example.helloweb' version='1.0.0.201906141800'/>
       <provided namespace='java.package' name='org.xtext.example.mydsl.helloWeb.impl' version='0.0.0'/>
       <provided namespace='java.package' name='org.xtext.example.mydsl.parser.antlr.internal' version='0.0.0'/>
       <provided namespace='java.package' name='org.xtext.example.mydsl.scoping' version='0.0.0'/>
@@ -23,7 +23,7 @@
       <provided namespace='java.package' name='org.xtext.example.mydsl' version='0.0.0'/>
       <provided namespace='java.package' name='org.xtext.example.mydsl.serializer' version='0.0.0'/>
       <provided namespace='java.package' name='org.xtext.example.mydsl.parser.antlr' version='0.0.0'/>
-      <provided namespace='osgi.identity' name='org.xtext.example.helloweb' version='1.0.0.201906131607'>
+      <provided namespace='osgi.identity' name='org.xtext.example.helloweb' version='1.0.0.201906141800'>
         <properties size='1'>
           <property name='type' value='osgi.bundle'/>
         </properties>
@@ -44,13 +44,13 @@
       <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.8))'/>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='org.xtext.example.helloweb' version='1.0.0.201906131607'/>
+      <artifact classifier='osgi.bundle' id='org.xtext.example.helloweb' version='1.0.0.201906141800'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: org.xtext.example.helloweb; singleton:=true&#xA;Bundle-Version: 1.0.0.201906131607&#xA;
+          Bundle-SymbolicName: org.xtext.example.helloweb; singleton:=true&#xA;Bundle-Version: 1.0.0.201906141800&#xA;
         </instruction>
       </instructions>
     </touchpointData>

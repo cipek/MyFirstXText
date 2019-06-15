@@ -20,7 +20,7 @@ import org.xtext.example.mydsl.helloWeb.RotateL;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.helloWeb.impl.RotateLImpl#getMilliseconds <em>Milliseconds</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.helloWeb.impl.RotateLImpl#getAngle <em>Angle</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import org.xtext.example.mydsl.helloWeb.RotateL;
 public class RotateLImpl extends CommandImpl implements RotateL
 {
   /**
-   * The default value of the '{@link #getMilliseconds() <em>Milliseconds</em>}' attribute.
+   * The default value of the '{@link #getAngle() <em>Angle</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMilliseconds()
+   * @see #getAngle()
    * @generated
    * @ordered
    */
-  protected static final int MILLISECONDS_EDEFAULT = 0;
+  protected static final int ANGLE_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getMilliseconds() <em>Milliseconds</em>}' attribute.
+   * The cached value of the '{@link #getAngle() <em>Angle</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMilliseconds()
+   * @see #getAngle()
    * @generated
    * @ordered
    */
-  protected int milliseconds = MILLISECONDS_EDEFAULT;
+  protected int angle = ANGLE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,10 @@ public class RotateLImpl extends CommandImpl implements RotateL
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getMilliseconds()
+  @Override
+  public int getAngle()
   {
-    return milliseconds;
+    return angle;
   }
 
   /**
@@ -83,12 +84,13 @@ public class RotateLImpl extends CommandImpl implements RotateL
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMilliseconds(int newMilliseconds)
+  @Override
+  public void setAngle(int newAngle)
   {
-    int oldMilliseconds = milliseconds;
-    milliseconds = newMilliseconds;
+    int oldAngle = angle;
+    angle = newAngle;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HelloWebPackage.ROTATE_L__MILLISECONDS, oldMilliseconds, milliseconds));
+      eNotify(new ENotificationImpl(this, Notification.SET, HelloWebPackage.ROTATE_L__ANGLE, oldAngle, angle));
   }
 
   /**
@@ -101,8 +103,8 @@ public class RotateLImpl extends CommandImpl implements RotateL
   {
     switch (featureID)
     {
-      case HelloWebPackage.ROTATE_L__MILLISECONDS:
-        return getMilliseconds();
+      case HelloWebPackage.ROTATE_L__ANGLE:
+        return getAngle();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +119,8 @@ public class RotateLImpl extends CommandImpl implements RotateL
   {
     switch (featureID)
     {
-      case HelloWebPackage.ROTATE_L__MILLISECONDS:
-        setMilliseconds((Integer)newValue);
+      case HelloWebPackage.ROTATE_L__ANGLE:
+        setAngle((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +136,8 @@ public class RotateLImpl extends CommandImpl implements RotateL
   {
     switch (featureID)
     {
-      case HelloWebPackage.ROTATE_L__MILLISECONDS:
-        setMilliseconds(MILLISECONDS_EDEFAULT);
+      case HelloWebPackage.ROTATE_L__ANGLE:
+        setAngle(ANGLE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +153,8 @@ public class RotateLImpl extends CommandImpl implements RotateL
   {
     switch (featureID)
     {
-      case HelloWebPackage.ROTATE_L__MILLISECONDS:
-        return milliseconds != MILLISECONDS_EDEFAULT;
+      case HelloWebPackage.ROTATE_L__ANGLE:
+        return angle != ANGLE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -167,9 +169,9 @@ public class RotateLImpl extends CommandImpl implements RotateL
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (milliseconds: ");
-    result.append(milliseconds);
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (angle: ");
+    result.append(angle);
     result.append(')');
     return result.toString();
   }

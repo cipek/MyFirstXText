@@ -107,15 +107,15 @@ public class HelloWebSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Backward returns Backward
 	 *
 	 * Constraint:
-	 *     milliseconds=INT
+	 *     distance=DOUBLE
 	 */
 	protected void sequence_Backward(ISerializationContext context, Backward semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.BACKWARD__MILLISECONDS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.BACKWARD__MILLISECONDS));
+			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.BACKWARD__DISTANCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.BACKWARD__DISTANCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBackwardAccess().getMillisecondsINTTerminalRuleCall_2_0(), semanticObject.getMilliseconds());
+		feeder.accept(grammarAccess.getBackwardAccess().getDistanceDOUBLEParserRuleCall_2_0(), semanticObject.getDistance());
 		feeder.finish();
 	}
 	
@@ -127,15 +127,15 @@ public class HelloWebSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Down returns Down
 	 *
 	 * Constraint:
-	 *     milliseconds=INT
+	 *     distance=DOUBLE
 	 */
 	protected void sequence_Down(ISerializationContext context, Down semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.DOWN__MILLISECONDS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.DOWN__MILLISECONDS));
+			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.DOWN__DISTANCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.DOWN__DISTANCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDownAccess().getMillisecondsINTTerminalRuleCall_2_0(), semanticObject.getMilliseconds());
+		feeder.accept(grammarAccess.getDownAccess().getDistanceDOUBLEParserRuleCall_2_0(), semanticObject.getDistance());
 		feeder.finish();
 	}
 	
@@ -165,15 +165,15 @@ public class HelloWebSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Forward returns Forward
 	 *
 	 * Constraint:
-	 *     milliseconds=INT
+	 *     distance=DOUBLE
 	 */
 	protected void sequence_Forward(ISerializationContext context, Forward semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.FORWARD__MILLISECONDS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.FORWARD__MILLISECONDS));
+			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.FORWARD__DISTANCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.FORWARD__DISTANCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getForwardAccess().getMillisecondsINTTerminalRuleCall_2_0(), semanticObject.getMilliseconds());
+		feeder.accept(grammarAccess.getForwardAccess().getDistanceDOUBLEParserRuleCall_2_0(), semanticObject.getDistance());
 		feeder.finish();
 	}
 	
@@ -204,15 +204,15 @@ public class HelloWebSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Left returns Left
 	 *
 	 * Constraint:
-	 *     milliseconds=INT
+	 *     distance=DOUBLE
 	 */
 	protected void sequence_Left(ISerializationContext context, Left semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.LEFT__MILLISECONDS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.LEFT__MILLISECONDS));
+			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.LEFT__DISTANCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.LEFT__DISTANCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLeftAccess().getMillisecondsINTTerminalRuleCall_2_0(), semanticObject.getMilliseconds());
+		feeder.accept(grammarAccess.getLeftAccess().getDistanceDOUBLEParserRuleCall_2_0(), semanticObject.getDistance());
 		feeder.finish();
 	}
 	
@@ -272,15 +272,15 @@ public class HelloWebSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Right returns Right
 	 *
 	 * Constraint:
-	 *     milliseconds=INT
+	 *     distance=DOUBLE
 	 */
 	protected void sequence_Right(ISerializationContext context, Right semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.RIGHT__MILLISECONDS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.RIGHT__MILLISECONDS));
+			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.RIGHT__DISTANCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.RIGHT__DISTANCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRightAccess().getMillisecondsINTTerminalRuleCall_2_0(), semanticObject.getMilliseconds());
+		feeder.accept(grammarAccess.getRightAccess().getDistanceDOUBLEParserRuleCall_2_0(), semanticObject.getDistance());
 		feeder.finish();
 	}
 	
@@ -292,15 +292,15 @@ public class HelloWebSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     RotateL returns RotateL
 	 *
 	 * Constraint:
-	 *     milliseconds=INT
+	 *     angle=INT
 	 */
 	protected void sequence_RotateL(ISerializationContext context, RotateL semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.ROTATE_L__MILLISECONDS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.ROTATE_L__MILLISECONDS));
+			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.ROTATE_L__ANGLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.ROTATE_L__ANGLE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRotateLAccess().getMillisecondsINTTerminalRuleCall_2_0(), semanticObject.getMilliseconds());
+		feeder.accept(grammarAccess.getRotateLAccess().getAngleINTTerminalRuleCall_2_0(), semanticObject.getAngle());
 		feeder.finish();
 	}
 	
@@ -312,15 +312,15 @@ public class HelloWebSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     RotateR returns RotateR
 	 *
 	 * Constraint:
-	 *     milliseconds=INT
+	 *     angle=INT
 	 */
 	protected void sequence_RotateR(ISerializationContext context, RotateR semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.ROTATE_R__MILLISECONDS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.ROTATE_R__MILLISECONDS));
+			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.ROTATE_R__ANGLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.ROTATE_R__ANGLE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRotateRAccess().getMillisecondsINTTerminalRuleCall_2_0(), semanticObject.getMilliseconds());
+		feeder.accept(grammarAccess.getRotateRAccess().getAngleINTTerminalRuleCall_2_0(), semanticObject.getAngle());
 		feeder.finish();
 	}
 	
@@ -352,15 +352,15 @@ public class HelloWebSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Up returns Up
 	 *
 	 * Constraint:
-	 *     milliseconds=INT
+	 *     distance=DOUBLE
 	 */
 	protected void sequence_Up(ISerializationContext context, Up semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.UP__MILLISECONDS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.UP__MILLISECONDS));
+			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.UP__DISTANCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.UP__DISTANCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUpAccess().getMillisecondsINTTerminalRuleCall_2_0(), semanticObject.getMilliseconds());
+		feeder.accept(grammarAccess.getUpAccess().getDistanceDOUBLEParserRuleCall_2_0(), semanticObject.getDistance());
 		feeder.finish();
 	}
 	
@@ -384,15 +384,15 @@ public class HelloWebSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Wait returns Wait
 	 *
 	 * Constraint:
-	 *     milliseconds=INT
+	 *     seconds=DOUBLE
 	 */
 	protected void sequence_Wait(ISerializationContext context, Wait semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.WAIT__MILLISECONDS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.WAIT__MILLISECONDS));
+			if (transientValues.isValueTransient(semanticObject, HelloWebPackage.Literals.WAIT__SECONDS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, HelloWebPackage.Literals.WAIT__SECONDS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getWaitAccess().getMillisecondsINTTerminalRuleCall_2_0(), semanticObject.getMilliseconds());
+		feeder.accept(grammarAccess.getWaitAccess().getSecondsDOUBLEParserRuleCall_2_0(), semanticObject.getSeconds());
 		feeder.finish();
 	}
 	

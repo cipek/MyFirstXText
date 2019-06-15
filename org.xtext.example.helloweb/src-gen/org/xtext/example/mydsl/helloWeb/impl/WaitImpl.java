@@ -20,7 +20,7 @@ import org.xtext.example.mydsl.helloWeb.Wait;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.helloWeb.impl.WaitImpl#getMilliseconds <em>Milliseconds</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.helloWeb.impl.WaitImpl#getSeconds <em>Seconds</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import org.xtext.example.mydsl.helloWeb.Wait;
 public class WaitImpl extends CommandImpl implements Wait
 {
   /**
-   * The default value of the '{@link #getMilliseconds() <em>Milliseconds</em>}' attribute.
+   * The default value of the '{@link #getSeconds() <em>Seconds</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMilliseconds()
+   * @see #getSeconds()
    * @generated
    * @ordered
    */
-  protected static final int MILLISECONDS_EDEFAULT = 0;
+  protected static final String SECONDS_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getMilliseconds() <em>Milliseconds</em>}' attribute.
+   * The cached value of the '{@link #getSeconds() <em>Seconds</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMilliseconds()
+   * @see #getSeconds()
    * @generated
    * @ordered
    */
-  protected int milliseconds = MILLISECONDS_EDEFAULT;
+  protected String seconds = SECONDS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,10 @@ public class WaitImpl extends CommandImpl implements Wait
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getMilliseconds()
+  @Override
+  public String getSeconds()
   {
-    return milliseconds;
+    return seconds;
   }
 
   /**
@@ -83,12 +84,13 @@ public class WaitImpl extends CommandImpl implements Wait
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMilliseconds(int newMilliseconds)
+  @Override
+  public void setSeconds(String newSeconds)
   {
-    int oldMilliseconds = milliseconds;
-    milliseconds = newMilliseconds;
+    String oldSeconds = seconds;
+    seconds = newSeconds;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HelloWebPackage.WAIT__MILLISECONDS, oldMilliseconds, milliseconds));
+      eNotify(new ENotificationImpl(this, Notification.SET, HelloWebPackage.WAIT__SECONDS, oldSeconds, seconds));
   }
 
   /**
@@ -101,8 +103,8 @@ public class WaitImpl extends CommandImpl implements Wait
   {
     switch (featureID)
     {
-      case HelloWebPackage.WAIT__MILLISECONDS:
-        return getMilliseconds();
+      case HelloWebPackage.WAIT__SECONDS:
+        return getSeconds();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +119,8 @@ public class WaitImpl extends CommandImpl implements Wait
   {
     switch (featureID)
     {
-      case HelloWebPackage.WAIT__MILLISECONDS:
-        setMilliseconds((Integer)newValue);
+      case HelloWebPackage.WAIT__SECONDS:
+        setSeconds((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +136,8 @@ public class WaitImpl extends CommandImpl implements Wait
   {
     switch (featureID)
     {
-      case HelloWebPackage.WAIT__MILLISECONDS:
-        setMilliseconds(MILLISECONDS_EDEFAULT);
+      case HelloWebPackage.WAIT__SECONDS:
+        setSeconds(SECONDS_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +153,8 @@ public class WaitImpl extends CommandImpl implements Wait
   {
     switch (featureID)
     {
-      case HelloWebPackage.WAIT__MILLISECONDS:
-        return milliseconds != MILLISECONDS_EDEFAULT;
+      case HelloWebPackage.WAIT__SECONDS:
+        return SECONDS_EDEFAULT == null ? seconds != null : !SECONDS_EDEFAULT.equals(seconds);
     }
     return super.eIsSet(featureID);
   }
@@ -167,9 +169,9 @@ public class WaitImpl extends CommandImpl implements Wait
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (milliseconds: ");
-    result.append(milliseconds);
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (seconds: ");
+    result.append(seconds);
     result.append(')');
     return result.toString();
   }

@@ -93,6 +93,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Program createProgram()
   {
     ProgramImpl program = new ProgramImpl();
@@ -104,6 +105,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Main createMain()
   {
     MainImpl main = new MainImpl();
@@ -115,6 +117,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public RecordedFlight createRecordedFlight()
   {
     RecordedFlightImpl recordedFlight = new RecordedFlightImpl();
@@ -126,6 +129,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public UserFunction createUserFunction()
   {
     UserFunctionImpl userFunction = new UserFunctionImpl();
@@ -137,6 +141,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public FeatureMatch createFeatureMatch()
   {
     FeatureMatchImpl featureMatch = new FeatureMatchImpl();
@@ -148,6 +153,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public SuperCommand createSuperCommand()
   {
     SuperCommandImpl superCommand = new SuperCommandImpl();
@@ -159,6 +165,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Command createCommand()
   {
     CommandImpl command = new CommandImpl();
@@ -170,6 +177,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Snapshot createSnapshot()
   {
     SnapshotImpl snapshot = new SnapshotImpl();
@@ -181,6 +189,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Up createUp()
   {
     UpImpl up = new UpImpl();
@@ -192,6 +201,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Down createDown()
   {
     DownImpl down = new DownImpl();
@@ -203,6 +213,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Left createLeft()
   {
     LeftImpl left = new LeftImpl();
@@ -214,6 +225,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Right createRight()
   {
     RightImpl right = new RightImpl();
@@ -225,6 +237,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Forward createForward()
   {
     ForwardImpl forward = new ForwardImpl();
@@ -236,6 +249,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Backward createBackward()
   {
     BackwardImpl backward = new BackwardImpl();
@@ -247,6 +261,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public RotateL createRotateL()
   {
     RotateLImpl rotateL = new RotateLImpl();
@@ -258,6 +273,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public RotateR createRotateR()
   {
     RotateRImpl rotateR = new RotateRImpl();
@@ -269,6 +285,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public Wait createWait()
   {
     WaitImpl wait = new WaitImpl();
@@ -280,6 +297,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public FunctionName createFunctionName()
   {
     FunctionNameImpl functionName = new FunctionNameImpl();
@@ -291,6 +309,7 @@ public class HelloWebFactoryImpl extends EFactoryImpl implements HelloWebFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public HelloWebPackage getHelloWebPackage()
   {
     return (HelloWebPackage)getEPackage();

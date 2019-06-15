@@ -73,6 +73,7 @@ public class FunctionNameImpl extends SuperCommandImpl implements FunctionName
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public String getFunc_name()
   {
     return func_name;
@@ -83,6 +84,7 @@ public class FunctionNameImpl extends SuperCommandImpl implements FunctionName
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public void setFunc_name(String newFunc_name)
   {
     String oldFunc_name = func_name;
@@ -167,7 +169,7 @@ public class FunctionNameImpl extends SuperCommandImpl implements FunctionName
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (func_name: ");
     result.append(func_name);
     result.append(')');

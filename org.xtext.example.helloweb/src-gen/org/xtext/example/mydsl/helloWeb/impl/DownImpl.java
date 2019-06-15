@@ -20,7 +20,7 @@ import org.xtext.example.mydsl.helloWeb.HelloWebPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.helloWeb.impl.DownImpl#getMilliseconds <em>Milliseconds</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.helloWeb.impl.DownImpl#getDistance <em>Distance</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import org.xtext.example.mydsl.helloWeb.HelloWebPackage;
 public class DownImpl extends CommandImpl implements Down
 {
   /**
-   * The default value of the '{@link #getMilliseconds() <em>Milliseconds</em>}' attribute.
+   * The default value of the '{@link #getDistance() <em>Distance</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMilliseconds()
+   * @see #getDistance()
    * @generated
    * @ordered
    */
-  protected static final int MILLISECONDS_EDEFAULT = 0;
+  protected static final String DISTANCE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getMilliseconds() <em>Milliseconds</em>}' attribute.
+   * The cached value of the '{@link #getDistance() <em>Distance</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMilliseconds()
+   * @see #getDistance()
    * @generated
    * @ordered
    */
-  protected int milliseconds = MILLISECONDS_EDEFAULT;
+  protected String distance = DISTANCE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,10 @@ public class DownImpl extends CommandImpl implements Down
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getMilliseconds()
+  @Override
+  public String getDistance()
   {
-    return milliseconds;
+    return distance;
   }
 
   /**
@@ -83,12 +84,13 @@ public class DownImpl extends CommandImpl implements Down
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMilliseconds(int newMilliseconds)
+  @Override
+  public void setDistance(String newDistance)
   {
-    int oldMilliseconds = milliseconds;
-    milliseconds = newMilliseconds;
+    String oldDistance = distance;
+    distance = newDistance;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, HelloWebPackage.DOWN__MILLISECONDS, oldMilliseconds, milliseconds));
+      eNotify(new ENotificationImpl(this, Notification.SET, HelloWebPackage.DOWN__DISTANCE, oldDistance, distance));
   }
 
   /**
@@ -101,8 +103,8 @@ public class DownImpl extends CommandImpl implements Down
   {
     switch (featureID)
     {
-      case HelloWebPackage.DOWN__MILLISECONDS:
-        return getMilliseconds();
+      case HelloWebPackage.DOWN__DISTANCE:
+        return getDistance();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +119,8 @@ public class DownImpl extends CommandImpl implements Down
   {
     switch (featureID)
     {
-      case HelloWebPackage.DOWN__MILLISECONDS:
-        setMilliseconds((Integer)newValue);
+      case HelloWebPackage.DOWN__DISTANCE:
+        setDistance((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +136,8 @@ public class DownImpl extends CommandImpl implements Down
   {
     switch (featureID)
     {
-      case HelloWebPackage.DOWN__MILLISECONDS:
-        setMilliseconds(MILLISECONDS_EDEFAULT);
+      case HelloWebPackage.DOWN__DISTANCE:
+        setDistance(DISTANCE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +153,8 @@ public class DownImpl extends CommandImpl implements Down
   {
     switch (featureID)
     {
-      case HelloWebPackage.DOWN__MILLISECONDS:
-        return milliseconds != MILLISECONDS_EDEFAULT;
+      case HelloWebPackage.DOWN__DISTANCE:
+        return DISTANCE_EDEFAULT == null ? distance != null : !DISTANCE_EDEFAULT.equals(distance);
     }
     return super.eIsSet(featureID);
   }
@@ -167,9 +169,9 @@ public class DownImpl extends CommandImpl implements Down
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (milliseconds: ");
-    result.append(milliseconds);
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (distance: ");
+    result.append(distance);
     result.append(')');
     return result.toString();
   }

@@ -55,35 +55,40 @@ Command:
 	| Snapshot
 ;
 
+DOUBLE:
+	INT '.' INT
+;
+
 Snapshot:
 	'SNAPSHOT' '('image_name = ID')'
 ;
 Up: 
-	'UP' '('milliseconds = INT')'
+	'UP' '('distance = DOUBLE')'
 ;
+	
 Down: 
-	'DOWN' '('milliseconds = INT')'
+	'DOWN' '('distance = DOUBLE')'
 ;
 Left: 
-	'LEFT' '('milliseconds = INT')'
+	'LEFT' '('distance = DOUBLE')'
 ;
 Right: 
-	'RIGHT' '('milliseconds = INT')'
+	'RIGHT' '('distance = DOUBLE')'
 ;
 Forward: 
-	'FORWARD' '('milliseconds = INT')'
+	'FORWARD' '('distance = DOUBLE')'
 ;
 Backward: 
-	'BACKWARD' '('milliseconds = INT')'
+	'BACKWARD' '('distance = DOUBLE')'
 ;
 RotateL: 
-	'ROTATELEFT' '('milliseconds = INT')'
+	'ROTATELEFT' '('angle = INT')'
 ;
 RotateR: 
-	'ROTATERIGHT' '('milliseconds = INT')'
+	'ROTATERIGHT' '('angle = INT')'
 ;
 Wait:
-	'WAIT' '(' milliseconds = INT ')'
+	'WAIT' '(' seconds = DOUBLE ')'
 ;
 
 FunctionName:

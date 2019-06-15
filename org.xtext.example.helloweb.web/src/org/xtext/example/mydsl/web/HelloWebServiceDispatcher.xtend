@@ -12,6 +12,8 @@ import org.eclipse.xtext.web.server.XtextServiceDispatcher
 import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider
 import org.eclipse.xtext.web.server.model.DocumentStateResult
 import org.eclipse.xtext.web.server.generator.GeneratorService
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 class HelloWebServiceDispatcher extends XtextServiceDispatcher {
 
@@ -107,28 +109,38 @@ class HelloWebServiceDispatcher extends XtextServiceDispatcher {
 					val file = new File(uri.toFileString)
 						var FileWriter writer
 						try {
-							writer = new FileWriter(file)
-							val fullText = context.getParameter('fullText')
-							if (fullText !== null)
-								writer.write(fullText)
+							//writer = new FileWriter(file)
+							//val fullText = context.getParameter('fullText')
+						//if (fullText !== null)
+							//	writer.write(fullText)
+		//println(file.getAbsolutePath()+"WebRoot/result.py")
 						} finally {
 							if (writer !== null)
 								writer.close()
 						}
 						val document = getResourceDocument(resourceId, context)
 						
-						println("preparing to run command: /bin/bash -c /xdrone-deploy.sh "+file.getAbsolutePath()+" > /tmp/xdrone.log")
+						//println("preparing to run command: sudo /bin/bash -c /xdrone-deploy.sh "+file.getAbsolutePath()+" > /tmp/xdrone.log")
 						
 						val pb = new ProcessBuilder().inheritIO()
-						.command("/bin/bash", "-c", System.getProperty("user.dir") + "/xdrone-deploy.sh" + " > /tmp/xdrone.log").start();
+						.command("/bin/bash", "-c", "./xdrone-deploy.sh").start();
+						//.command("/usr/bin/python", System.getProperty("user.dir")+"/WebRoot/result.py").start();
+						//.command("/usr/bin/python", "/home/osboxes/catkin_ws/src/cipek/src/ardrone_test_1.py").start();
+						//.command("/bin/bash", "-c", "/home/osboxes/Documents/xdrone-deploy.sh").start();
 						
-						println(System.getProperty("user.dir") + "/xdrone-deploy.sh");
+						
+						//val p = Runtime.getRuntime.exec("bash /xdrone-deploy.sh")
+						
+						
+						//println(System.getProperty("user.dir") + "/xdrone-deploy.sh");
+						//println("/usr/bin/python " + System.getProperty("user.dir")+"/WebRoot/result.py");
 						
 						pb.waitFor();
 						
 						if (!pb.alive){
 							println("exit code: "+pb.exitValue)
 						}
+						
 						
 						return new DocumentStateResult(document.stateId)
 						

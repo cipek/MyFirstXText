@@ -161,9 +161,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//UserFunction:
-		//	name=ID '()'
-		//	'{' (func+=Command ';'?)*
-		//	'}';
+		//	name=ID '()' '{' (func+=Command ';'?)* '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//name=ID '()' '{' (func+=Command ';'?)* '}'
@@ -278,8 +276,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFunctionNameParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//SuperCommand:
-		//	Command
-		//	| FunctionName;
+		//	Command | FunctionName;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Command | FunctionName
@@ -306,16 +303,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSnapshotParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		
 		//Command:
-		//	Up
-		//	| Down
-		//	| Left
-		//	| Right
-		//	| Forward
-		//	| Backward
-		//	| RotateL
-		//	| RotateR
-		//	| Wait
-		//	| Snapshot;
+		//	Up | Down | Left | Right | Forward | Backward | RotateL | RotateR | Wait | Snapshot;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//Up | Down | Left | Right | Forward | Backward | RotateL | RotateR | Wait | Snapshot
@@ -350,6 +338,29 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Snapshot
 		public RuleCall getSnapshotParserRuleCall_9() { return cSnapshotParserRuleCall_9; }
+	}
+	public class DOUBLEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.HelloWeb.DOUBLE");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cINTTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		
+		//DOUBLE:
+		//	INT '.' INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//INT '.' INT
+		public Group getGroup() { return cGroup; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_0() { return cINTTerminalRuleCall_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_2() { return cINTTerminalRuleCall_2; }
 	}
 	public class SnapshotElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.HelloWeb.Snapshot");
@@ -387,15 +398,15 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cUPKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMillisecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMillisecondsINTTerminalRuleCall_2_0 = (RuleCall)cMillisecondsAssignment_2.eContents().get(0);
+		private final Assignment cDistanceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDistanceDOUBLEParserRuleCall_2_0 = (RuleCall)cDistanceAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Up:
-		//	'UP' '(' milliseconds=INT ')';
+		//	'UP' '(' distance=DOUBLE ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'UP' '(' milliseconds=INT ')'
+		//'UP' '(' distance=DOUBLE ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'UP'
@@ -404,11 +415,11 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//milliseconds=INT
-		public Assignment getMillisecondsAssignment_2() { return cMillisecondsAssignment_2; }
+		//distance=DOUBLE
+		public Assignment getDistanceAssignment_2() { return cDistanceAssignment_2; }
 		
-		//INT
-		public RuleCall getMillisecondsINTTerminalRuleCall_2_0() { return cMillisecondsINTTerminalRuleCall_2_0; }
+		//DOUBLE
+		public RuleCall getDistanceDOUBLEParserRuleCall_2_0() { return cDistanceDOUBLEParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -418,15 +429,15 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDOWNKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMillisecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMillisecondsINTTerminalRuleCall_2_0 = (RuleCall)cMillisecondsAssignment_2.eContents().get(0);
+		private final Assignment cDistanceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDistanceDOUBLEParserRuleCall_2_0 = (RuleCall)cDistanceAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Down:
-		//	'DOWN' '(' milliseconds=INT ')';
+		//	'DOWN' '(' distance=DOUBLE ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'DOWN' '(' milliseconds=INT ')'
+		//'DOWN' '(' distance=DOUBLE ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'DOWN'
@@ -435,11 +446,11 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//milliseconds=INT
-		public Assignment getMillisecondsAssignment_2() { return cMillisecondsAssignment_2; }
+		//distance=DOUBLE
+		public Assignment getDistanceAssignment_2() { return cDistanceAssignment_2; }
 		
-		//INT
-		public RuleCall getMillisecondsINTTerminalRuleCall_2_0() { return cMillisecondsINTTerminalRuleCall_2_0; }
+		//DOUBLE
+		public RuleCall getDistanceDOUBLEParserRuleCall_2_0() { return cDistanceDOUBLEParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -449,15 +460,15 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLEFTKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMillisecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMillisecondsINTTerminalRuleCall_2_0 = (RuleCall)cMillisecondsAssignment_2.eContents().get(0);
+		private final Assignment cDistanceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDistanceDOUBLEParserRuleCall_2_0 = (RuleCall)cDistanceAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Left:
-		//	'LEFT' '(' milliseconds=INT ')';
+		//	'LEFT' '(' distance=DOUBLE ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'LEFT' '(' milliseconds=INT ')'
+		//'LEFT' '(' distance=DOUBLE ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'LEFT'
@@ -466,11 +477,11 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//milliseconds=INT
-		public Assignment getMillisecondsAssignment_2() { return cMillisecondsAssignment_2; }
+		//distance=DOUBLE
+		public Assignment getDistanceAssignment_2() { return cDistanceAssignment_2; }
 		
-		//INT
-		public RuleCall getMillisecondsINTTerminalRuleCall_2_0() { return cMillisecondsINTTerminalRuleCall_2_0; }
+		//DOUBLE
+		public RuleCall getDistanceDOUBLEParserRuleCall_2_0() { return cDistanceDOUBLEParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -480,15 +491,15 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRIGHTKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMillisecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMillisecondsINTTerminalRuleCall_2_0 = (RuleCall)cMillisecondsAssignment_2.eContents().get(0);
+		private final Assignment cDistanceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDistanceDOUBLEParserRuleCall_2_0 = (RuleCall)cDistanceAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Right:
-		//	'RIGHT' '(' milliseconds=INT ')';
+		//	'RIGHT' '(' distance=DOUBLE ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'RIGHT' '(' milliseconds=INT ')'
+		//'RIGHT' '(' distance=DOUBLE ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'RIGHT'
@@ -497,11 +508,11 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//milliseconds=INT
-		public Assignment getMillisecondsAssignment_2() { return cMillisecondsAssignment_2; }
+		//distance=DOUBLE
+		public Assignment getDistanceAssignment_2() { return cDistanceAssignment_2; }
 		
-		//INT
-		public RuleCall getMillisecondsINTTerminalRuleCall_2_0() { return cMillisecondsINTTerminalRuleCall_2_0; }
+		//DOUBLE
+		public RuleCall getDistanceDOUBLEParserRuleCall_2_0() { return cDistanceDOUBLEParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -511,15 +522,15 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFORWARDKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMillisecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMillisecondsINTTerminalRuleCall_2_0 = (RuleCall)cMillisecondsAssignment_2.eContents().get(0);
+		private final Assignment cDistanceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDistanceDOUBLEParserRuleCall_2_0 = (RuleCall)cDistanceAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Forward:
-		//	'FORWARD' '(' milliseconds=INT ')';
+		//	'FORWARD' '(' distance=DOUBLE ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'FORWARD' '(' milliseconds=INT ')'
+		//'FORWARD' '(' distance=DOUBLE ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'FORWARD'
@@ -528,11 +539,11 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//milliseconds=INT
-		public Assignment getMillisecondsAssignment_2() { return cMillisecondsAssignment_2; }
+		//distance=DOUBLE
+		public Assignment getDistanceAssignment_2() { return cDistanceAssignment_2; }
 		
-		//INT
-		public RuleCall getMillisecondsINTTerminalRuleCall_2_0() { return cMillisecondsINTTerminalRuleCall_2_0; }
+		//DOUBLE
+		public RuleCall getDistanceDOUBLEParserRuleCall_2_0() { return cDistanceDOUBLEParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -542,15 +553,15 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cBACKWARDKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMillisecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMillisecondsINTTerminalRuleCall_2_0 = (RuleCall)cMillisecondsAssignment_2.eContents().get(0);
+		private final Assignment cDistanceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cDistanceDOUBLEParserRuleCall_2_0 = (RuleCall)cDistanceAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Backward:
-		//	'BACKWARD' '(' milliseconds=INT ')';
+		//	'BACKWARD' '(' distance=DOUBLE ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'BACKWARD' '(' milliseconds=INT ')'
+		//'BACKWARD' '(' distance=DOUBLE ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'BACKWARD'
@@ -559,11 +570,11 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//milliseconds=INT
-		public Assignment getMillisecondsAssignment_2() { return cMillisecondsAssignment_2; }
+		//distance=DOUBLE
+		public Assignment getDistanceAssignment_2() { return cDistanceAssignment_2; }
 		
-		//INT
-		public RuleCall getMillisecondsINTTerminalRuleCall_2_0() { return cMillisecondsINTTerminalRuleCall_2_0; }
+		//DOUBLE
+		public RuleCall getDistanceDOUBLEParserRuleCall_2_0() { return cDistanceDOUBLEParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -573,15 +584,15 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cROTATELEFTKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMillisecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMillisecondsINTTerminalRuleCall_2_0 = (RuleCall)cMillisecondsAssignment_2.eContents().get(0);
+		private final Assignment cAngleAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAngleINTTerminalRuleCall_2_0 = (RuleCall)cAngleAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//RotateL:
-		//	'ROTATELEFT' '(' milliseconds=INT ')';
+		//	'ROTATELEFT' '(' angle=INT ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ROTATELEFT' '(' milliseconds=INT ')'
+		//'ROTATELEFT' '(' angle=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'ROTATELEFT'
@@ -590,11 +601,11 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//milliseconds=INT
-		public Assignment getMillisecondsAssignment_2() { return cMillisecondsAssignment_2; }
+		//angle=INT
+		public Assignment getAngleAssignment_2() { return cAngleAssignment_2; }
 		
 		//INT
-		public RuleCall getMillisecondsINTTerminalRuleCall_2_0() { return cMillisecondsINTTerminalRuleCall_2_0; }
+		public RuleCall getAngleINTTerminalRuleCall_2_0() { return cAngleINTTerminalRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -604,15 +615,15 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cROTATERIGHTKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMillisecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMillisecondsINTTerminalRuleCall_2_0 = (RuleCall)cMillisecondsAssignment_2.eContents().get(0);
+		private final Assignment cAngleAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAngleINTTerminalRuleCall_2_0 = (RuleCall)cAngleAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//RotateR:
-		//	'ROTATERIGHT' '(' milliseconds=INT ')';
+		//	'ROTATERIGHT' '(' angle=INT ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'ROTATERIGHT' '(' milliseconds=INT ')'
+		//'ROTATERIGHT' '(' angle=INT ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'ROTATERIGHT'
@@ -621,11 +632,11 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//milliseconds=INT
-		public Assignment getMillisecondsAssignment_2() { return cMillisecondsAssignment_2; }
+		//angle=INT
+		public Assignment getAngleAssignment_2() { return cAngleAssignment_2; }
 		
 		//INT
-		public RuleCall getMillisecondsINTTerminalRuleCall_2_0() { return cMillisecondsINTTerminalRuleCall_2_0; }
+		public RuleCall getAngleINTTerminalRuleCall_2_0() { return cAngleINTTerminalRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -635,15 +646,15 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cWAITKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMillisecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMillisecondsINTTerminalRuleCall_2_0 = (RuleCall)cMillisecondsAssignment_2.eContents().get(0);
+		private final Assignment cSecondsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSecondsDOUBLEParserRuleCall_2_0 = (RuleCall)cSecondsAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Wait:
-		//	'WAIT' '(' milliseconds=INT ')';
+		//	'WAIT' '(' seconds=DOUBLE ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'WAIT' '(' milliseconds=INT ')'
+		//'WAIT' '(' seconds=DOUBLE ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'WAIT'
@@ -652,11 +663,11 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//milliseconds=INT
-		public Assignment getMillisecondsAssignment_2() { return cMillisecondsAssignment_2; }
+		//seconds=DOUBLE
+		public Assignment getSecondsAssignment_2() { return cSecondsAssignment_2; }
 		
-		//INT
-		public RuleCall getMillisecondsINTTerminalRuleCall_2_0() { return cMillisecondsINTTerminalRuleCall_2_0; }
+		//DOUBLE
+		public RuleCall getSecondsDOUBLEParserRuleCall_2_0() { return cSecondsDOUBLEParserRuleCall_2_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -697,6 +708,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	private final LandElements pLand;
 	private final SuperCommandElements pSuperCommand;
 	private final CommandElements pCommand;
+	private final DOUBLEElements pDOUBLE;
 	private final SnapshotElements pSnapshot;
 	private final UpElements pUp;
 	private final DownElements pDown;
@@ -729,6 +741,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 		this.pLand = new LandElements();
 		this.pSuperCommand = new SuperCommandElements();
 		this.pCommand = new CommandElements();
+		this.pDOUBLE = new DOUBLEElements();
 		this.pSnapshot = new SnapshotElements();
 		this.pUp = new UpElements();
 		this.pDown = new DownElements();
@@ -800,9 +813,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UserFunction:
-	//	name=ID '()'
-	//	'{' (func+=Command ';'?)*
-	//	'}';
+	//	name=ID '()' '{' (func+=Command ';'?)* '}';
 	public UserFunctionElements getUserFunctionAccess() {
 		return pUserFunction;
 	}
@@ -862,8 +873,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SuperCommand:
-	//	Command
-	//	| FunctionName;
+	//	Command | FunctionName;
 	public SuperCommandElements getSuperCommandAccess() {
 		return pSuperCommand;
 	}
@@ -873,22 +883,23 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Command:
-	//	Up
-	//	| Down
-	//	| Left
-	//	| Right
-	//	| Forward
-	//	| Backward
-	//	| RotateL
-	//	| RotateR
-	//	| Wait
-	//	| Snapshot;
+	//	Up | Down | Left | Right | Forward | Backward | RotateL | RotateR | Wait | Snapshot;
 	public CommandElements getCommandAccess() {
 		return pCommand;
 	}
 	
 	public ParserRule getCommandRule() {
 		return getCommandAccess().getRule();
+	}
+	
+	//DOUBLE:
+	//	INT '.' INT;
+	public DOUBLEElements getDOUBLEAccess() {
+		return pDOUBLE;
+	}
+	
+	public ParserRule getDOUBLERule() {
+		return getDOUBLEAccess().getRule();
 	}
 	
 	//Snapshot:
@@ -902,7 +913,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Up:
-	//	'UP' '(' milliseconds=INT ')';
+	//	'UP' '(' distance=DOUBLE ')';
 	public UpElements getUpAccess() {
 		return pUp;
 	}
@@ -912,7 +923,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Down:
-	//	'DOWN' '(' milliseconds=INT ')';
+	//	'DOWN' '(' distance=DOUBLE ')';
 	public DownElements getDownAccess() {
 		return pDown;
 	}
@@ -922,7 +933,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Left:
-	//	'LEFT' '(' milliseconds=INT ')';
+	//	'LEFT' '(' distance=DOUBLE ')';
 	public LeftElements getLeftAccess() {
 		return pLeft;
 	}
@@ -932,7 +943,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Right:
-	//	'RIGHT' '(' milliseconds=INT ')';
+	//	'RIGHT' '(' distance=DOUBLE ')';
 	public RightElements getRightAccess() {
 		return pRight;
 	}
@@ -942,7 +953,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Forward:
-	//	'FORWARD' '(' milliseconds=INT ')';
+	//	'FORWARD' '(' distance=DOUBLE ')';
 	public ForwardElements getForwardAccess() {
 		return pForward;
 	}
@@ -952,7 +963,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Backward:
-	//	'BACKWARD' '(' milliseconds=INT ')';
+	//	'BACKWARD' '(' distance=DOUBLE ')';
 	public BackwardElements getBackwardAccess() {
 		return pBackward;
 	}
@@ -962,7 +973,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RotateL:
-	//	'ROTATELEFT' '(' milliseconds=INT ')';
+	//	'ROTATELEFT' '(' angle=INT ')';
 	public RotateLElements getRotateLAccess() {
 		return pRotateL;
 	}
@@ -972,7 +983,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RotateR:
-	//	'ROTATERIGHT' '(' milliseconds=INT ')';
+	//	'ROTATERIGHT' '(' angle=INT ')';
 	public RotateRElements getRotateRAccess() {
 		return pRotateR;
 	}
@@ -982,7 +993,7 @@ public class HelloWebGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Wait:
-	//	'WAIT' '(' milliseconds=INT ')';
+	//	'WAIT' '(' seconds=DOUBLE ')';
 	public WaitElements getWaitAccess() {
 		return pWait;
 	}

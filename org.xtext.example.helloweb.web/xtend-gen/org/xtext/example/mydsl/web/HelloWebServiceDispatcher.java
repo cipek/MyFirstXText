@@ -169,37 +169,20 @@ public class HelloWebServiceDispatcher extends XtextServiceDispatcher {
             final File file = new File(_fileString);
             FileWriter writer = null;
             try {
-              FileWriter _fileWriter = new FileWriter(file);
-              writer = _fileWriter;
-              final String fullText = context.getParameter("fullText");
-              if ((fullText != null)) {
-                writer.write(fullText);
-              }
             } finally {
               if ((writer != null)) {
                 writer.close();
               }
             }
             final XtextWebDocument document = this.getResourceDocument(resourceId, context);
-            String _absolutePath = file.getAbsolutePath();
-            String _plus = ("preparing to run command: /bin/bash -c /xdrone-deploy.sh " + _absolutePath);
-            String _plus_1 = (_plus + " > /tmp/xdrone.log");
-            InputOutput.<String>println(_plus_1);
-            ProcessBuilder _inheritIO = new ProcessBuilder().inheritIO();
-            String _property = System.getProperty("user.dir");
-            String _plus_2 = (_property + "/xdrone-deploy.sh");
-            String _plus_3 = (_plus_2 + " > /tmp/xdrone.log");
-            final Process pb = _inheritIO.command("/bin/bash", "-c", _plus_3).start();
-            String _property_1 = System.getProperty("user.dir");
-            String _plus_4 = (_property_1 + "/xdrone-deploy.sh");
-            InputOutput.<String>println(_plus_4);
+            final Process pb = new ProcessBuilder().inheritIO().command("/bin/bash", "-c", "./xdrone-deploy.sh").start();
             pb.waitFor();
             boolean _isAlive = pb.isAlive();
             boolean _not = (!_isAlive);
             if (_not) {
               int _exitValue = pb.exitValue();
-              String _plus_5 = ("exit code: " + Integer.valueOf(_exitValue));
-              InputOutput.<String>println(_plus_5);
+              String _plus = ("exit code: " + Integer.valueOf(_exitValue));
+              InputOutput.<String>println(_plus);
             }
             String _stateId = document.getStateId();
             return new DocumentStateResult(_stateId);

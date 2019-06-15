@@ -194,7 +194,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
 
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-   * 
+   *
    * <p>This method is used to initialize {@link HelloWebPackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
@@ -209,7 +209,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
     if (isInited) return (HelloWebPackage)EPackage.Registry.INSTANCE.getEPackage(HelloWebPackage.eNS_URI);
 
     // Obtain or create and register package
-    HelloWebPackageImpl theHelloWebPackage = (HelloWebPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof HelloWebPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new HelloWebPackageImpl());
+    Object registeredHelloWebPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+    HelloWebPackageImpl theHelloWebPackage = registeredHelloWebPackage instanceof HelloWebPackageImpl ? (HelloWebPackageImpl)registeredHelloWebPackage : new HelloWebPackageImpl();
 
     isInited = true;
 
@@ -222,7 +223,6 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
     // Mark meta-data to indicate it can't be changed
     theHelloWebPackage.freeze();
 
-  
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(HelloWebPackage.eNS_URI, theHelloWebPackage);
     return theHelloWebPackage;
@@ -233,6 +233,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getProgram()
   {
     return programEClass;
@@ -243,6 +244,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getProgram_Main()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(0);
@@ -253,6 +255,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getMain()
   {
     return mainEClass;
@@ -263,6 +266,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getMain_Commands()
   {
     return (EReference)mainEClass.getEStructuralFeatures().get(0);
@@ -273,6 +277,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getMain_Takeoff()
   {
     return (EAttribute)mainEClass.getEStructuralFeatures().get(1);
@@ -283,6 +288,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getMain_Land()
   {
     return (EAttribute)mainEClass.getEStructuralFeatures().get(2);
@@ -293,6 +299,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getRecordedFlight()
   {
     return recordedFlightEClass;
@@ -303,6 +310,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getRecordedFlight_Video_name()
   {
     return (EAttribute)recordedFlightEClass.getEStructuralFeatures().get(0);
@@ -313,6 +321,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getUserFunction()
   {
     return userFunctionEClass;
@@ -323,6 +332,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getUserFunction_Name()
   {
     return (EAttribute)userFunctionEClass.getEStructuralFeatures().get(0);
@@ -333,6 +343,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EReference getUserFunction_Func()
   {
     return (EReference)userFunctionEClass.getEStructuralFeatures().get(1);
@@ -343,6 +354,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getFeatureMatch()
   {
     return featureMatchEClass;
@@ -353,6 +365,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getFeatureMatch_Image_name()
   {
     return (EAttribute)featureMatchEClass.getEStructuralFeatures().get(0);
@@ -363,6 +376,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getSuperCommand()
   {
     return superCommandEClass;
@@ -373,6 +387,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getCommand()
   {
     return commandEClass;
@@ -383,6 +398,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getSnapshot()
   {
     return snapshotEClass;
@@ -393,6 +409,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getSnapshot_Image_name()
   {
     return (EAttribute)snapshotEClass.getEStructuralFeatures().get(0);
@@ -403,6 +420,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getUp()
   {
     return upEClass;
@@ -413,7 +431,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUp_Milliseconds()
+  @Override
+  public EAttribute getUp_Distance()
   {
     return (EAttribute)upEClass.getEStructuralFeatures().get(0);
   }
@@ -423,6 +442,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getDown()
   {
     return downEClass;
@@ -433,7 +453,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDown_Milliseconds()
+  @Override
+  public EAttribute getDown_Distance()
   {
     return (EAttribute)downEClass.getEStructuralFeatures().get(0);
   }
@@ -443,6 +464,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getLeft()
   {
     return leftEClass;
@@ -453,7 +475,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLeft_Milliseconds()
+  @Override
+  public EAttribute getLeft_Distance()
   {
     return (EAttribute)leftEClass.getEStructuralFeatures().get(0);
   }
@@ -463,6 +486,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getRight()
   {
     return rightEClass;
@@ -473,7 +497,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRight_Milliseconds()
+  @Override
+  public EAttribute getRight_Distance()
   {
     return (EAttribute)rightEClass.getEStructuralFeatures().get(0);
   }
@@ -483,6 +508,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getForward()
   {
     return forwardEClass;
@@ -493,7 +519,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getForward_Milliseconds()
+  @Override
+  public EAttribute getForward_Distance()
   {
     return (EAttribute)forwardEClass.getEStructuralFeatures().get(0);
   }
@@ -503,6 +530,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getBackward()
   {
     return backwardEClass;
@@ -513,7 +541,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBackward_Milliseconds()
+  @Override
+  public EAttribute getBackward_Distance()
   {
     return (EAttribute)backwardEClass.getEStructuralFeatures().get(0);
   }
@@ -523,6 +552,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getRotateL()
   {
     return rotateLEClass;
@@ -533,7 +563,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRotateL_Milliseconds()
+  @Override
+  public EAttribute getRotateL_Angle()
   {
     return (EAttribute)rotateLEClass.getEStructuralFeatures().get(0);
   }
@@ -543,6 +574,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getRotateR()
   {
     return rotateREClass;
@@ -553,7 +585,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRotateR_Milliseconds()
+  @Override
+  public EAttribute getRotateR_Angle()
   {
     return (EAttribute)rotateREClass.getEStructuralFeatures().get(0);
   }
@@ -563,6 +596,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getWait()
   {
     return waitEClass;
@@ -573,7 +607,8 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getWait_Milliseconds()
+  @Override
+  public EAttribute getWait_Seconds()
   {
     return (EAttribute)waitEClass.getEStructuralFeatures().get(0);
   }
@@ -583,6 +618,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EClass getFunctionName()
   {
     return functionNameEClass;
@@ -593,6 +629,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public EAttribute getFunctionName_Func_name()
   {
     return (EAttribute)functionNameEClass.getEStructuralFeatures().get(0);
@@ -603,6 +640,7 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   public HelloWebFactory getHelloWebFactory()
   {
     return (HelloWebFactory)getEFactoryInstance();
@@ -654,31 +692,31 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
     createEAttribute(snapshotEClass, SNAPSHOT__IMAGE_NAME);
 
     upEClass = createEClass(UP);
-    createEAttribute(upEClass, UP__MILLISECONDS);
+    createEAttribute(upEClass, UP__DISTANCE);
 
     downEClass = createEClass(DOWN);
-    createEAttribute(downEClass, DOWN__MILLISECONDS);
+    createEAttribute(downEClass, DOWN__DISTANCE);
 
     leftEClass = createEClass(LEFT);
-    createEAttribute(leftEClass, LEFT__MILLISECONDS);
+    createEAttribute(leftEClass, LEFT__DISTANCE);
 
     rightEClass = createEClass(RIGHT);
-    createEAttribute(rightEClass, RIGHT__MILLISECONDS);
+    createEAttribute(rightEClass, RIGHT__DISTANCE);
 
     forwardEClass = createEClass(FORWARD);
-    createEAttribute(forwardEClass, FORWARD__MILLISECONDS);
+    createEAttribute(forwardEClass, FORWARD__DISTANCE);
 
     backwardEClass = createEClass(BACKWARD);
-    createEAttribute(backwardEClass, BACKWARD__MILLISECONDS);
+    createEAttribute(backwardEClass, BACKWARD__DISTANCE);
 
     rotateLEClass = createEClass(ROTATE_L);
-    createEAttribute(rotateLEClass, ROTATE_L__MILLISECONDS);
+    createEAttribute(rotateLEClass, ROTATE_L__ANGLE);
 
     rotateREClass = createEClass(ROTATE_R);
-    createEAttribute(rotateREClass, ROTATE_R__MILLISECONDS);
+    createEAttribute(rotateREClass, ROTATE_R__ANGLE);
 
     waitEClass = createEClass(WAIT);
-    createEAttribute(waitEClass, WAIT__MILLISECONDS);
+    createEAttribute(waitEClass, WAIT__SECONDS);
 
     functionNameEClass = createEClass(FUNCTION_NAME);
     createEAttribute(functionNameEClass, FUNCTION_NAME__FUNC_NAME);
@@ -753,31 +791,31 @@ public class HelloWebPackageImpl extends EPackageImpl implements HelloWebPackage
     initEAttribute(getSnapshot_Image_name(), ecorePackage.getEString(), "image_name", null, 0, 1, Snapshot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(upEClass, Up.class, "Up", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUp_Milliseconds(), ecorePackage.getEInt(), "milliseconds", null, 0, 1, Up.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUp_Distance(), ecorePackage.getEString(), "distance", null, 0, 1, Up.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(downEClass, Down.class, "Down", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDown_Milliseconds(), ecorePackage.getEInt(), "milliseconds", null, 0, 1, Down.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDown_Distance(), ecorePackage.getEString(), "distance", null, 0, 1, Down.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(leftEClass, Left.class, "Left", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLeft_Milliseconds(), ecorePackage.getEInt(), "milliseconds", null, 0, 1, Left.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLeft_Distance(), ecorePackage.getEString(), "distance", null, 0, 1, Left.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rightEClass, Right.class, "Right", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRight_Milliseconds(), ecorePackage.getEInt(), "milliseconds", null, 0, 1, Right.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRight_Distance(), ecorePackage.getEString(), "distance", null, 0, 1, Right.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(forwardEClass, Forward.class, "Forward", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getForward_Milliseconds(), ecorePackage.getEInt(), "milliseconds", null, 0, 1, Forward.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getForward_Distance(), ecorePackage.getEString(), "distance", null, 0, 1, Forward.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(backwardEClass, Backward.class, "Backward", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBackward_Milliseconds(), ecorePackage.getEInt(), "milliseconds", null, 0, 1, Backward.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBackward_Distance(), ecorePackage.getEString(), "distance", null, 0, 1, Backward.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rotateLEClass, RotateL.class, "RotateL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRotateL_Milliseconds(), ecorePackage.getEInt(), "milliseconds", null, 0, 1, RotateL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRotateL_Angle(), ecorePackage.getEInt(), "angle", null, 0, 1, RotateL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rotateREClass, RotateR.class, "RotateR", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRotateR_Milliseconds(), ecorePackage.getEInt(), "milliseconds", null, 0, 1, RotateR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRotateR_Angle(), ecorePackage.getEInt(), "angle", null, 0, 1, RotateR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(waitEClass, Wait.class, "Wait", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getWait_Milliseconds(), ecorePackage.getEInt(), "milliseconds", null, 0, 1, Wait.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getWait_Seconds(), ecorePackage.getEString(), "seconds", null, 0, 1, Wait.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(functionNameEClass, FunctionName.class, "FunctionName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFunctionName_Func_name(), ecorePackage.getEString(), "func_name", null, 0, 1, FunctionName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

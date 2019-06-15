@@ -1,0 +1,6 @@
+org/xtext/example/mydsl/web/HelloWebWebModule.class
+org/xtext/example/mydsl/web/ServerLauncher.class
+org/xtext/example/mydsl/web/HelloWebResourceHandler.class
+org/xtext/example/mydsl/web/HelloWebServiceDispatcher.class
+org/xtext/example/mydsl/web/HelloWebWebSetup.class
+org/xtext/example/mydsl/web/HelloWebServlet.class

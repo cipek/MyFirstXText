@@ -31,10 +31,6 @@ public interface Main extends EObject
    * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
    * The list contents are of type {@link org.xtext.example.mydsl.helloWeb.SuperCommand}.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Commands</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Commands</em>' containment reference list.
    * @see org.xtext.example.mydsl.helloWeb.HelloWebPackage#getMain_Commands()
@@ -47,10 +43,6 @@ public interface Main extends EObject
    * Returns the value of the '<em><b>Takeoff</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Takeoff</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Takeoff</em>' attribute list.
    * @see org.xtext.example.mydsl.helloWeb.HelloWebPackage#getMain_Takeoff()
@@ -63,10 +55,6 @@ public interface Main extends EObject
    * Returns the value of the '<em><b>Land</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Land</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Land</em>' attribute list.
    * @see org.xtext.example.mydsl.helloWeb.HelloWebPackage#getMain_Land()

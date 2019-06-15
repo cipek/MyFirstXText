@@ -15,7 +15,18 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.example.mydsl.helloWeb.Backward;
+import org.xtext.example.mydsl.helloWeb.Command;
+import org.xtext.example.mydsl.helloWeb.Down;
+import org.xtext.example.mydsl.helloWeb.Forward;
+import org.xtext.example.mydsl.helloWeb.Left;
 import org.xtext.example.mydsl.helloWeb.Main;
+import org.xtext.example.mydsl.helloWeb.Right;
+import org.xtext.example.mydsl.helloWeb.RotateL;
+import org.xtext.example.mydsl.helloWeb.RotateR;
+import org.xtext.example.mydsl.helloWeb.SuperCommand;
+import org.xtext.example.mydsl.helloWeb.Up;
+import org.xtext.example.mydsl.helloWeb.Wait;
 
 /**
  * Generates code from your model files on save.
@@ -28,11 +39,20 @@ public class HelloWebGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("#! /usr/bin/env python");
     _builder.newLine();
+    _builder.append("import sys");
+    _builder.newLine();
+    _builder.append("sys.path.append(\'/opt/ros/indigo/lib/python2.7/dist-packages\')");
+    _builder.newLine();
     _builder.append("import rospy");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("from std_msgs.msg import Empty");
     _builder.newLine();
-    _builder.append("from ardrone_autonomy.msg import Navdata\t\t");
+    _builder.append("from ardrone_autonomy.msg import Navdata\t");
+    _builder.newLine();
+    _builder.append("from geometry_msgs.msg import Twist\t");
+    _builder.newLine();
+    _builder.append("PI = 3.1415926535897");
     _builder.newLine();
     _builder.newLine();
     _builder.append("state = -1;");
@@ -46,8 +66,227 @@ public class HelloWebGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("state = data.state");
     _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
-    _builder.append("rospy.init_node(\'cipek\')");
+    _builder.append("\t");
+    _builder.append("def rotate(speed, angle, clockwise):");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg = Twist()");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("velocity_publisher = rospy.Publisher(\'/cmd_vel\', Twist, queue_size=1)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("angular_speed = speed*PI/360");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("relative_angle = angle*PI/360");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.linear.x=0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.linear.y=0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.linear.z=0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.angular.x = 0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.angular.y = 0");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if clockwise:");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("vel_msg.angular.z = -abs(angular_speed)");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("else:");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("vel_msg.angular.z = abs(angular_speed)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("t0 = rospy.Time.now().to_sec()");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("current_angle = 0");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("while velocity_publisher.get_num_connections() < 1:");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("rospy.sleep(0.1)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("while(current_angle < relative_angle):");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("velocity_publisher.publish(vel_msg)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("t1 = rospy.Time.now().to_sec()");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("current_angle = angular_speed*(t1-t0)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.angular.z = 0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("velocity_publisher.publish(vel_msg)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("#direction (true)- forward, left, up");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("def move(speed, distance, direction, axis): ");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg = Twist()");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("velocity_publisher = rospy.Publisher(\'/cmd_vel\', Twist, queue_size=1)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.linear.x=0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.linear.y=0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.linear.z=0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.angular.x = 0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.angular.y = 0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.angular.z = 0");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if axis == \"x\":");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("if direction:");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("vel_msg.linear.x = abs(speed)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("else:");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("vel_msg.linear.x = -abs(speed)");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("elif axis == \"y\":");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("if direction:");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("vel_msg.linear.y = abs(speed)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("else:");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("vel_msg.linear.y = -abs(speed)");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("elif axis == \"z\":");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("if direction:");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("vel_msg.linear.z = abs(speed)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("else:");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("vel_msg.linear.z = -abs(speed)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("while velocity_publisher.get_num_connections() < 1:");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("rospy.sleep(0.1)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("t0 = rospy.Time.now().to_sec()");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("current_distance = 0");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("while(current_distance < distance):");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("velocity_publisher.publish(vel_msg)");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("t1 = rospy.Time.now().to_sec()");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("current_distance = speed*(t1-t0)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.linear.x=0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.linear.y=0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("vel_msg.linear.z=0");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("velocity_publisher.publish(vel_msg)");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("rospy.init_node(\'test_node\')");
     _builder.newLine();
     _builder.append("empty = Empty()");
     _builder.newLine();
@@ -101,6 +340,19 @@ public class HelloWebGenerator extends AbstractGenerator {
     }
     _builder.newLine();
     {
+      EList<SuperCommand> _commands = main.getCommands();
+      for(final SuperCommand f : _commands) {
+        {
+          if ((f instanceof Command)) {
+            CharSequence _compile = this.compile(((Command)f));
+            _builder.append(_compile);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.newLine();
+    {
       EList<String> _land = main.getLand();
       for(final String to_1 : _land) {
         _builder.append("land = rospy.Publisher(\'/ardrone/land\', Empty, queue_size=1)");
@@ -115,6 +367,99 @@ public class HelloWebGenerator extends AbstractGenerator {
         _builder.newLine();
         _builder.append("land.publish(empty)");
         _builder.newLine();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Command cmd) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((cmd instanceof Up)) {
+        _builder.append("move(0.1, ");
+        String _distance = ((Up)cmd).getDistance();
+        _builder.append(_distance);
+        _builder.append(", True, \"z\")");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((cmd instanceof Down)) {
+        _builder.append("\t  \t");
+        _builder.append("move(0.1, ");
+        String _distance_1 = ((Down)cmd).getDistance();
+        _builder.append(_distance_1, "\t  \t");
+        _builder.append(", False, \"z\")");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((cmd instanceof Left)) {
+        _builder.append("\t  \t");
+        _builder.append("move(0.1, ");
+        String _distance_2 = ((Left)cmd).getDistance();
+        _builder.append(_distance_2, "\t  \t");
+        _builder.append(", True, \"y\")");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((cmd instanceof Right)) {
+        _builder.append("\t  \t");
+        _builder.append("move(0.1, ");
+        String _distance_3 = ((Right)cmd).getDistance();
+        _builder.append(_distance_3, "\t  \t");
+        _builder.append(", False, \"y\")");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((cmd instanceof Forward)) {
+        _builder.append("\t  \t");
+        _builder.append("move(0.1, ");
+        String _distance_4 = ((Forward)cmd).getDistance();
+        _builder.append(_distance_4, "\t  \t");
+        _builder.append(", True, \"x\")");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((cmd instanceof Backward)) {
+        _builder.append("\t  \t");
+        _builder.append("move(0.1, ");
+        String _distance_5 = ((Backward)cmd).getDistance();
+        _builder.append(_distance_5, "\t  \t");
+        _builder.append(", False, \"x\")");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((cmd instanceof RotateL)) {
+        _builder.append("rotate(30, ");
+        int _angle = ((RotateL)cmd).getAngle();
+        _builder.append(_angle);
+        _builder.append(", False)");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((cmd instanceof RotateR)) {
+        _builder.append("\t  \t");
+        _builder.append("rotate(30, ");
+        int _angle_1 = ((RotateR)cmd).getAngle();
+        _builder.append(_angle_1, "\t  \t");
+        _builder.append(", True)");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((cmd instanceof Wait)) {
+        _builder.append("\t  \t");
+        _builder.append("rospy.sleep(");
+        String _seconds = ((Wait)cmd).getSeconds();
+        _builder.append(_seconds, "\t  \t");
+        _builder.append(")");
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder;

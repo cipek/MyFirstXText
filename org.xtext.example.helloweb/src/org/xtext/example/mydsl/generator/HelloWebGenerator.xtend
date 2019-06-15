@@ -10,6 +10,16 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import java.io.IOException
 import org.xtext.example.mydsl.helloWeb.Main
 import java.io.PrintWriter
+import org.xtext.example.mydsl.helloWeb.Command
+import org.xtext.example.mydsl.helloWeb.Up
+import org.xtext.example.mydsl.helloWeb.Down
+import org.xtext.example.mydsl.helloWeb.Left
+import org.xtext.example.mydsl.helloWeb.Right
+import org.xtext.example.mydsl.helloWeb.Forward
+import org.xtext.example.mydsl.helloWeb.Backward
+import org.xtext.example.mydsl.helloWeb.RotateL
+import org.xtext.example.mydsl.helloWeb.RotateR
+import org.xtext.example.mydsl.helloWeb.Wait
 
 /**
  * Generates code from your model files on save.
@@ -20,17 +30,101 @@ class HelloWebGenerator extends AbstractGenerator {
 
 	def compile(Main main)'''
 		#! /usr/bin/env python
+		import sys
+		sys.path.append('/opt/ros/indigo/lib/python2.7/dist-packages')
 		import rospy
+		
 		from std_msgs.msg import Empty
-		from ardrone_autonomy.msg import Navdata		
+		from ardrone_autonomy.msg import Navdata	
+		from geometry_msgs.msg import Twist	
+		PI = 3.1415926535897
 		
 		state = -1;
 		
 		def ReceiveNavdata(data):
 			global state
 			state = data.state
+			
+			def rotate(speed, angle, clockwise):
+				vel_msg = Twist()
+				velocity_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+			
+				angular_speed = speed*PI/360
+				relative_angle = angle*PI/360
+			
+				vel_msg.linear.x=0
+				vel_msg.linear.y=0
+				vel_msg.linear.z=0
+				vel_msg.angular.x = 0
+				vel_msg.angular.y = 0
+			
+				if clockwise:
+					vel_msg.angular.z = -abs(angular_speed)
+				else:
+					vel_msg.angular.z = abs(angular_speed)
+			
+				t0 = rospy.Time.now().to_sec()
+				current_angle = 0
+			
+				while velocity_publisher.get_num_connections() < 1:
+					rospy.sleep(0.1)
+			
+				while(current_angle < relative_angle):
+					velocity_publisher.publish(vel_msg)
+					t1 = rospy.Time.now().to_sec()
+					current_angle = angular_speed*(t1-t0)
+			
+				vel_msg.angular.z = 0
+				velocity_publisher.publish(vel_msg)
+			
+			
+			#direction (true)- forward, left, up
+			def move(speed, distance, direction, axis): 
+				vel_msg = Twist()
+				velocity_publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+			
+				vel_msg.linear.x=0
+				vel_msg.linear.y=0
+				vel_msg.linear.z=0
+				vel_msg.angular.x = 0
+				vel_msg.angular.y = 0
+				vel_msg.angular.z = 0
+			
+				if axis == "x":
+					if direction:
+						vel_msg.linear.x = abs(speed)
+					else:
+						vel_msg.linear.x = -abs(speed)
+				elif axis == "y":
+					if direction:
+						vel_msg.linear.y = abs(speed)
+					else:
+						vel_msg.linear.y = -abs(speed)
+				elif axis == "z":
+					if direction:
+						vel_msg.linear.z = abs(speed)
+					else:
+						vel_msg.linear.z = -abs(speed)
+			
+			
+				while velocity_publisher.get_num_connections() < 1:
+					rospy.sleep(0.1)
+			
+				t0 = rospy.Time.now().to_sec()
+				current_distance = 0
+			
+				while(current_distance < distance):
+					velocity_publisher.publish(vel_msg)
+					t1 = rospy.Time.now().to_sec()
+					current_distance = speed*(t1-t0)
+			
+				vel_msg.linear.x=0
+				vel_msg.linear.y=0
+				vel_msg.linear.z=0
+				velocity_publisher.publish(vel_msg)
+				
 		
-		rospy.init_node('cipek')
+		rospy.init_node('test_node')
 		empty = Empty()
 		rospy.Subscriber('/ardrone/navdata', Navdata, ReceiveNavdata)
 		
@@ -56,6 +150,12 @@ class HelloWebGenerator extends AbstractGenerator {
 			rospy.sleep(5)
 		«ENDFOR»
 		
+		«FOR f : main.commands»
+			«IF f instanceof Command»
+				«f.compile»
+			«ENDIF»
+		«ENDFOR»
+		
 		«FOR to : main.land»  
 			land = rospy.Publisher('/ardrone/land', Empty, queue_size=1)
 						
@@ -64,6 +164,36 @@ class HelloWebGenerator extends AbstractGenerator {
 			
 			land.publish(empty)
 		«ENDFOR»
+	'''
+	
+	def compile(Command cmd) '''
+		«IF cmd instanceof Up »
+		move(0.1, «cmd.distance», True, "z")
+	  	«ENDIF»
+	  	«IF cmd instanceof Down»
+	  	move(0.1, «cmd.distance», False, "z")
+	  	«ENDIF»
+	  	«IF cmd instanceof Left »
+	  	move(0.1, «cmd.distance», True, "y")
+	  	«ENDIF»
+	  	«IF cmd instanceof Right»
+	  	move(0.1, «cmd.distance», False, "y")
+	  	«ENDIF»
+	  	«IF cmd instanceof Forward»	
+	  	move(0.1, «cmd.distance», True, "x")
+	  	«ENDIF»
+	  	«IF cmd instanceof Backward»	
+	  	move(0.1, «cmd.distance», False, "x")
+	  	«ENDIF»
+	  	«IF cmd instanceof RotateL»	
+		rotate(30, «cmd.angle», False)
+	  	«ENDIF»
+	  	«IF cmd instanceof RotateR»	
+	  	rotate(30, «cmd.angle», True)
+	  	«ENDIF»
+	  	«IF cmd instanceof Wait»
+	  	rospy.sleep(«cmd.seconds»)
+	  	«ENDIF»
 	'''
 
 

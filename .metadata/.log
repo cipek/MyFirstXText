@@ -1,0 +1,26 @@
+!SESSION 2019-06-13 11:34:50.206 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=1.8.0_171
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.ui 1 1 2019-06-13 11:36:04.237
+!MESSAGE Workbench migration started
+
+!ENTRY org.eclipse.egit.core 1 0 2019-06-13 11:36:05.496
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.ui 1 1 2019-06-13 11:36:06.644
+!MESSAGE Workbench migration finished
+!SESSION 2019-06-13 11:41:52.484 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=1.8.0_171
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.egit.core 1 0 2019-06-13 11:42:09.613
+!MESSAGE Using Apache MINA sshd as ssh client.

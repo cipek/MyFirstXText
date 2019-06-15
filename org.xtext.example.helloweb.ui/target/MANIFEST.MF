@@ -16,7 +16,7 @@ Import-Package: org.apache.log4j
 Export-Package: org.xtext.example.mydsl.ui.contentassist,org.xtext.exa
  mple.helloweb.ui.internal,org.xtext.example.mydsl.ui.quickfix
 Bundle-Name: org.xtext.example.helloweb.ui
-Bundle-Version: 1.0.0.201906131607
+Bundle-Version: 1.0.0.201906141800
 Bundle-Activator: org.xtext.example.helloweb.ui.internal.HellowebActiv
  ator
 

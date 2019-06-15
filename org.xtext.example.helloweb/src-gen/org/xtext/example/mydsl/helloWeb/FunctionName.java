@@ -25,10 +25,6 @@ public interface FunctionName extends SuperCommand
   /**
    * Returns the value of the '<em><b>Func name</b></em>' attribute.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Func name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Func name</em>' attribute.
    * @see #setFunc_name(String)

@@ -1,15 +1,24 @@
 #! /usr/bin/env python
+import sys
+sys.path.append('/opt/ros/indigo/lib/python2.7/dist-packages')
 import rospy
+
 from std_msgs.msg import Empty
 from ardrone_autonomy.msg import Navdata		
 
+#Empty = imp.load_source('std_msgs.msg.Empty', '/opt/ros/indigo/share/std_msgs')
+import rosgraph
+
 state = -1;
+print(rosgraph)
+print("IN")
+print(rospy)
 
 def ReceiveNavdata(data):
 	global state
 	state = data.state
 
-rospy.init_node('cipek')
+rospy.init_node('test_node')
 empty = Empty()
 rospy.Subscriber('/ardrone/navdata', Navdata, ReceiveNavdata)
 

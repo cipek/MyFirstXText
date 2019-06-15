@@ -413,6 +413,44 @@ ruleCommand returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleDOUBLE
+entryRuleDOUBLE returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getDOUBLERule()); }
+	iv_ruleDOUBLE=ruleDOUBLE
+	{ $current=$iv_ruleDOUBLE.current.getText(); }
+	EOF;
+
+// Rule DOUBLE
+ruleDOUBLE returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_INT_0=RULE_INT
+		{
+			$current.merge(this_INT_0);
+		}
+		{
+			newLeafNode(this_INT_0, grammarAccess.getDOUBLEAccess().getINTTerminalRuleCall_0());
+		}
+		kw='.'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getDOUBLEAccess().getFullStopKeyword_1());
+		}
+		this_INT_2=RULE_INT
+		{
+			$current.merge(this_INT_2);
+		}
+		{
+			newLeafNode(this_INT_2, grammarAccess.getDOUBLEAccess().getINTTerminalRuleCall_2());
+		}
+	)
+;
+
 // Entry rule entryRuleSnapshot
 entryRuleSnapshot returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getSnapshotRule()); }
@@ -488,19 +526,20 @@ ruleUp returns [EObject current=null]
 		}
 		(
 			(
-				lv_milliseconds_2_0=RULE_INT
 				{
-					newLeafNode(lv_milliseconds_2_0, grammarAccess.getUpAccess().getMillisecondsINTTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getUpAccess().getDistanceDOUBLEParserRuleCall_2_0());
 				}
+				lv_distance_2_0=ruleDOUBLE
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getUpRule());
+						$current = createModelElementForParent(grammarAccess.getUpRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"milliseconds",
-						lv_milliseconds_2_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"distance",
+						lv_distance_2_0,
+						"org.xtext.example.mydsl.HelloWeb.DOUBLE");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -537,19 +576,20 @@ ruleDown returns [EObject current=null]
 		}
 		(
 			(
-				lv_milliseconds_2_0=RULE_INT
 				{
-					newLeafNode(lv_milliseconds_2_0, grammarAccess.getDownAccess().getMillisecondsINTTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getDownAccess().getDistanceDOUBLEParserRuleCall_2_0());
 				}
+				lv_distance_2_0=ruleDOUBLE
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDownRule());
+						$current = createModelElementForParent(grammarAccess.getDownRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"milliseconds",
-						lv_milliseconds_2_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"distance",
+						lv_distance_2_0,
+						"org.xtext.example.mydsl.HelloWeb.DOUBLE");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -586,19 +626,20 @@ ruleLeft returns [EObject current=null]
 		}
 		(
 			(
-				lv_milliseconds_2_0=RULE_INT
 				{
-					newLeafNode(lv_milliseconds_2_0, grammarAccess.getLeftAccess().getMillisecondsINTTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getLeftAccess().getDistanceDOUBLEParserRuleCall_2_0());
 				}
+				lv_distance_2_0=ruleDOUBLE
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getLeftRule());
+						$current = createModelElementForParent(grammarAccess.getLeftRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"milliseconds",
-						lv_milliseconds_2_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"distance",
+						lv_distance_2_0,
+						"org.xtext.example.mydsl.HelloWeb.DOUBLE");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -635,19 +676,20 @@ ruleRight returns [EObject current=null]
 		}
 		(
 			(
-				lv_milliseconds_2_0=RULE_INT
 				{
-					newLeafNode(lv_milliseconds_2_0, grammarAccess.getRightAccess().getMillisecondsINTTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getRightAccess().getDistanceDOUBLEParserRuleCall_2_0());
 				}
+				lv_distance_2_0=ruleDOUBLE
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getRightRule());
+						$current = createModelElementForParent(grammarAccess.getRightRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"milliseconds",
-						lv_milliseconds_2_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"distance",
+						lv_distance_2_0,
+						"org.xtext.example.mydsl.HelloWeb.DOUBLE");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -684,19 +726,20 @@ ruleForward returns [EObject current=null]
 		}
 		(
 			(
-				lv_milliseconds_2_0=RULE_INT
 				{
-					newLeafNode(lv_milliseconds_2_0, grammarAccess.getForwardAccess().getMillisecondsINTTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getForwardAccess().getDistanceDOUBLEParserRuleCall_2_0());
 				}
+				lv_distance_2_0=ruleDOUBLE
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getForwardRule());
+						$current = createModelElementForParent(grammarAccess.getForwardRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"milliseconds",
-						lv_milliseconds_2_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"distance",
+						lv_distance_2_0,
+						"org.xtext.example.mydsl.HelloWeb.DOUBLE");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -733,19 +776,20 @@ ruleBackward returns [EObject current=null]
 		}
 		(
 			(
-				lv_milliseconds_2_0=RULE_INT
 				{
-					newLeafNode(lv_milliseconds_2_0, grammarAccess.getBackwardAccess().getMillisecondsINTTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getBackwardAccess().getDistanceDOUBLEParserRuleCall_2_0());
 				}
+				lv_distance_2_0=ruleDOUBLE
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getBackwardRule());
+						$current = createModelElementForParent(grammarAccess.getBackwardRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"milliseconds",
-						lv_milliseconds_2_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"distance",
+						lv_distance_2_0,
+						"org.xtext.example.mydsl.HelloWeb.DOUBLE");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -782,9 +826,9 @@ ruleRotateL returns [EObject current=null]
 		}
 		(
 			(
-				lv_milliseconds_2_0=RULE_INT
+				lv_angle_2_0=RULE_INT
 				{
-					newLeafNode(lv_milliseconds_2_0, grammarAccess.getRotateLAccess().getMillisecondsINTTerminalRuleCall_2_0());
+					newLeafNode(lv_angle_2_0, grammarAccess.getRotateLAccess().getAngleINTTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -792,8 +836,8 @@ ruleRotateL returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"milliseconds",
-						lv_milliseconds_2_0,
+						"angle",
+						lv_angle_2_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
@@ -831,9 +875,9 @@ ruleRotateR returns [EObject current=null]
 		}
 		(
 			(
-				lv_milliseconds_2_0=RULE_INT
+				lv_angle_2_0=RULE_INT
 				{
-					newLeafNode(lv_milliseconds_2_0, grammarAccess.getRotateRAccess().getMillisecondsINTTerminalRuleCall_2_0());
+					newLeafNode(lv_angle_2_0, grammarAccess.getRotateRAccess().getAngleINTTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
@@ -841,8 +885,8 @@ ruleRotateR returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"milliseconds",
-						lv_milliseconds_2_0,
+						"angle",
+						lv_angle_2_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
@@ -880,19 +924,20 @@ ruleWait returns [EObject current=null]
 		}
 		(
 			(
-				lv_milliseconds_2_0=RULE_INT
 				{
-					newLeafNode(lv_milliseconds_2_0, grammarAccess.getWaitAccess().getMillisecondsINTTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getWaitAccess().getSecondsDOUBLEParserRuleCall_2_0());
 				}
+				lv_seconds_2_0=ruleDOUBLE
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getWaitRule());
+						$current = createModelElementForParent(grammarAccess.getWaitRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"milliseconds",
-						lv_milliseconds_2_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"seconds",
+						lv_seconds_2_0,
+						"org.xtext.example.mydsl.HelloWeb.DOUBLE");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
